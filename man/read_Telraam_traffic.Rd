@@ -10,11 +10,12 @@ read_Telraam_traffic(
   time_start,
   time_end,
   tz = Sys.timezone(),
-  mytoken = Sys.getenv("telraam")
+  mytoken = get_Telraam_Token(),
+  include_speed = FALSE
 )
 }
 \arguments{
-\item{id}{the segment (or instance) identifier in question (can be found in the address of the segment from the Telraam website}
+\item{id}{the segment (or instance) identifier in question (can be found in the address of the segment from the Telraam website)}
 
 \item{report}{can only be "per-hour", resulting in hourly aggregated traffic}
 
@@ -25,6 +26,8 @@ read_Telraam_traffic(
 \item{tz}{timezone, by default the system timezone}
 
 \item{mytoken}{the authentication token, if not previously set with the \code{set_TelraamToken} function}
+
+\item{include_speed}{logical, if car speed distribution included in the final data, \code{FALSE} as default}
 }
 \value{
 data.frame with traffic data
@@ -33,5 +36,9 @@ data.frame with traffic data
 Function as an interface for the traffic API call
 }
 \examples{
-read_Telraam_traffic(9000003890,time_start = "2023-03-28 07:00:00",time_end = "2023-03-30 07:00:00")
+\dontshow{
+my_token = readLines(con = "../mytoken.txt",warn = FALSE)
+set_Telraam_Token(my_token)
+}
+read_Telraam_traffic(9000003890,time_start = "2023-03-25 07:00:00",time_end = "2023-04-10 07:00:00")
 }
