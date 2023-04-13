@@ -62,6 +62,11 @@ data = read_Telraam_traffic(9000003890,
 
 The function returns a data set with the hourly traffic by vehicle type and direction
 
+```{r}
+data |> head()
+```
+
+
 If the `include_speed` is set as `TRUE`. The returned data frame will include the binned speed distribution for cars
 
 ```{r,results='hide',warning=FALSE}

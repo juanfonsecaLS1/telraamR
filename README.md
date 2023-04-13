@@ -58,6 +58,32 @@ data = read_Telraam_traffic(9000003890,
 The function returns a data set with the hourly traffic by vehicle type
 and direction
 
+``` r
+data |> head()
+```
+
+    ##   instance_id segment_id                     date interval    uptime    heavy
+    ## 1          -1 9000003890 2023-03-25T07:00:00.000Z   hourly 0.7622222 48.54227
+    ## 2          -1 9000003890 2023-03-25T08:00:00.000Z   hourly 0.7638889 41.89091
+    ## 3          -1 9000003890 2023-03-25T09:00:00.000Z   hourly 0.7377778 78.61446
+    ## 4          -1 9000003890 2023-03-25T10:00:00.000Z   hourly 0.6547222 61.09461
+    ## 5          -1 9000003890 2023-03-25T11:00:00.000Z   hourly 0.6850000 75.91241
+    ## 6          -1 9000003890 2023-03-25T12:00:00.000Z   hourly 0.6072222 72.46112
+    ##         car      bike pedestrian heavy_lft heavy_rgt  car_lft  car_rgt
+    ## 1  276.8222  10.49563   1.311953  23.61516  24.92711 107.5802 169.2420
+    ## 2  489.6000  28.80000   5.236364  17.01818  24.87273 226.4727 263.1273
+    ## 3  826.8072  32.53012   5.421687  33.88554  44.72892 363.2530 463.5542
+    ## 4  696.4786 106.91557   3.054731  22.91048  38.18413 343.6572 352.8214
+    ## 5  945.9854  49.63504  23.357664  30.65693  45.25547 421.8978 524.0876
+    ## 6 1007.8683  65.87374   3.293687  18.11528  54.34584 535.2242 472.6441
+    ##    bike_lft  bike_rgt pedestrian_lft pedestrian_rgt direction        timezone
+    ## 1  5.247813  5.247813       1.311953       0.000000         1 Europe/Brussels
+    ## 2 11.781818 17.018182       2.618182       2.618182         1 Europe/Brussels
+    ## 3  9.487952 23.042169       0.000000       5.421687         1 Europe/Brussels
+    ## 4 44.293594 62.621977       1.527365       1.527365         1 Europe/Brussels
+    ## 5 27.737226 21.897810       4.379562      18.978102         1 Europe/Brussels
+    ## 6 42.817932 23.055810       0.000000       3.293687         1 Europe/Brussels
+
 If the `include_speed` is set as `TRUE`. The returned data frame will
 include the binned speed distribution for cars
 
