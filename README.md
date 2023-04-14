@@ -32,12 +32,15 @@ not have one, you can obtain one by registering in Telraam
 token, it can be set using the following line of code:
 
 ``` r
-set_Telraam_Token("your token goes here")
+usethis::edit_r_environ()
 ```
 
-**NOTE:** The token has to be set at the beginning of every session.
-Alternatively, the authentication token can be provided as a parameter
-of all functions of this package.
+Save your token into the `.Renviron` file that is opened when you
+execute the command above and restart your session. You can check to see
+if the token has been loaded as follows:
+
+The authentication token can also be provided in the `mytoken` argument
+of functions that call the Telraam API.
 
 ## Usage
 
@@ -94,7 +97,7 @@ library(tidyverse)
     ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
     ## ✔ dplyr     1.1.1     ✔ readr     2.1.4
     ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-    ## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+    ## ✔ ggplot2   3.4.1     ✔ tibble    3.2.1
     ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
     ## ✔ purrr     1.0.1     
     ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
