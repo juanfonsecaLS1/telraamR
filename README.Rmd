@@ -35,16 +35,18 @@ library(telraamR)
 An authentication token is needed for using the Telraam API. If you do not have one, you can obtain one by registering in Telraam [here](https://www.telraam.net/en/register). Once you have obtained the token, it can be set using the following line of code:
 
 ```{r,eval=F}
-set_Telraam_Token("your token goes here")
+usethis::edit_r_environ()
 ```
 
-```{r,include=FALSE}
-my_token = readLines(con = "../mytoken.txt",warn = FALSE)
-set_Telraam_Token(my_token)
+Save your token into the `.Renviron` file that is opened when you execute the command above and restart your session.
+You can check to see if the token has been loaded as follows:
+
+```{r,eval=F}
+Sys.getenv("telraam")
 ```
 
 
-**NOTE:** The token has to be set at the beginning of every session. Alternatively, the authentication token can be provided as a parameter of all functions of this package.
+The authentication token can also be provided in the `mytoken` argument of functions that call the Telraam API.
 
 ## Usage
 
