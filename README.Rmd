@@ -41,7 +41,7 @@ usethis::edit_r_environ()
 Save your token into the `.Renviron` file that is opened when you execute the command above and restart your session.
 You can check to see if the token has been loaded as follows:
 
-```{r,include=FALSE}
+```{r,eval=F}
 Sys.getenv("telraam")
 ```
 
