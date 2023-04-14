@@ -8,9 +8,9 @@
 #' @examples
 #'
 #' mytoken = "ivRgw7ZAGFedfwIdASezecdnETZDsdETB4Bqv3pbs5X8JDNnt1pQtpxDmpR6as2k"
-#' set_Telraam_Token(mytoken)
+#' set_telraam_token(mytoken)
 #'
-set_Telraam_Token = function(token) {
+set_telraam_token = function(token) {
   if (is.null(token)) {
     stop("No token provided")
   }

@@ -23,12 +23,32 @@
 #' @export
 #'
 #' @examples
-#' \dontshow{
-#' my_token = readLines(con = "../mytoken.txt",warn = FALSE)
-#' set_Telraam_Token(my_token)
+#'
+#'
+#'
+#'
+#' \dontrun{
+#' # Setting up the PAT Method 1 (Recommended):
+#' # 1. Run the following line
+#' usethis::edit_r_environ()
+#'
+#' # 2. Add a line as telraam = "your token goes here"
+#' # 3. Restart your R session
+#'
+#' # Setting up the PAT Method 2:
+#' my_token = readLines(con = "mytoken.txt",warn = FALSE)
+#'
+#'
+#' read_telraam_traffic(9000003890,
+#'                      time_start = "2023-03-25 07:00:00",
+#'                      time_end = "2023-03-30 07:00:00")
+#'
+#' read_telraam_traffic(9000003890,
+#'                      time_start = "2023-03-25 07:00:00",
+#'                      time_end = "2023-03-30 07:00:00",
+#'                      include_speed = TRUE)
 #' }
-#' read_Telraam_traffic(9000003890,time_start = "2023-03-25 07:00:00",time_end = "2023-04-10 07:00:00")
-read_Telraam_traffic = function(id,
+read_telraam_traffic = function(id,
                                 report = c("per-hour"),
                                 time_start,
                                 time_end,
@@ -85,10 +105,10 @@ read_Telraam_traffic = function(id,
          \r\n}')
 
   # API call
-  res = httr::VERB("POST",
-                   url = "https://telraam-api.net/v1/reports/traffic",
-                   body = body,
-                   add_headers(headers))
+  res = VERB("POST",
+             url = "https://telraam-api.net/v1/reports/traffic",
+             body = body,
+             add_headers(headers))
 
   my_response = fromJSON(content(res,
                                  'text',
@@ -130,6 +150,6 @@ read_Telraam_traffic = function(id,
     mydata_speed = do.call(rbind, my_speed)
     mydata = cbind(mydata,mydata_speed)
   }
-  return(mydata)
 
+  return(mydata)
 }

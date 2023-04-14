@@ -57,7 +57,7 @@ The hourly report for a single site can be obtained using the `read_Telraam_traf
 ```{r}
 data = read_Telraam_traffic(9000003890,
                             time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-10 07:00:00",
+                            time_end = "2023-04-14 07:00:00",
                             report = "per-hour",
                             include_speed = FALSE)
 ```
