@@ -151,5 +151,7 @@ read_telraam_traffic = function(id,
     mydata = cbind(mydata,mydata_speed)
   }
 
+  mydata$date = ymd_hms(mydata$date)
+
   return(mydata)
 }
