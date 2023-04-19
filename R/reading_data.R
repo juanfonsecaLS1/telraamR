@@ -53,7 +53,7 @@ read_telraam_traffic = function(id,
                                 time_start,
                                 time_end,
                                 tz = Sys.timezone(),
-                                mytoken = get_Telraam_Token(),
+                                mytoken = get_telraam_token(),
                                 include_speed = FALSE
                                 ){
   # Arguments check

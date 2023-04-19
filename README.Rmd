@@ -50,6 +50,17 @@ The authentication token can also be provided in the `mytoken` argument of funct
 
 ## Usage
 
+### Cameras
+
+It is possible to obtain all camera instances registered on the server with the following code:
+
+```{r}
+cameras_summary = read_telraam_cameras()
+
+cameras_summary |> str()
+```
+
+
 ### Traffic data
 
 The hourly report for a single site can be obtained using the `read_Telraam_traffic` function. The following code shows an example of the use:
@@ -65,7 +76,8 @@ data = read_telraam_traffic(9000003890,
 The function returns a data set with the hourly traffic by vehicle type and direction
 
 ```{r}
-data |> head()
+data |>
+  head()
 ```
 
 
@@ -83,7 +95,7 @@ data = read_telraam_traffic(9000003890,
                             report = "per-hour",
                             include_speed = TRUE)
 
-
-
-data |> select(date,starts_with("car speed")) |> str()
+data |>
+  select(date,starts_with("car speed")) |>
+  str()
 ```

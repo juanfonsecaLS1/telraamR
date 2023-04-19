@@ -17,7 +17,7 @@ set_telraam_token = function(token) {
   return(Sys.setenv(telraam = token))
 }
 
-get_Telraam_Token=function(){
+get_telraam_token=function(){
   PAT=Sys.getenv('telraam')
   if(PAT==""){
     stop("Telraam token has not been set. Use set_Telraam_Token")
