@@ -38,12 +38,13 @@ read_telraam_cameras = function(mytoken = get_telraam_token()){
 
   my_cameras = data.frame(do.call(rbind,
                                   lapply(my_response$cameras,
-                                         rbind))) |>
+                                         rbind)))
+  my_cameras_df = my_cameras |>
     unnest(cols = everything()) |>
-    mutate(across(starts_with("time"),ymd_hms),
-           across(ends_with("data_package"),ymd_hms))
+    mutate(across(starts_with("time"), ymd_hms),
+           across(ends_with("data_package"), ymd_hms))
 
 
-  return(my_cameras)
+  return(my_cameras_df)
 
 }
