@@ -36,7 +36,9 @@ read_telraam_cameras = function(mytoken = get_telraam_token()){
     stop("Response returned a non ok message")
   }
 
-  my_cameras = data.frame(do.call(rbind,lapply(my_response$cameras,rbind))) |>
+  my_cameras = data.frame(do.call(rbind,
+                                  lapply(my_response$cameras,
+                                         rbind))) |>
     unnest(cols = everything()) |>
     mutate(across(starts_with("time"),ymd_hms),
            across(ends_with("data_package"),ymd_hms))
