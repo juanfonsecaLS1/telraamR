@@ -1,7 +1,6 @@
 ---
 title: "telraamR"
 output: github_document
-always_allow_html: true
 ---
 
 ```{r setup, include=FALSE}
@@ -103,11 +102,16 @@ data |>
 
 ### Segments Location
 
-```{r}
-segments = read_telraam_segments()
-```
+To obtain the location of the network links a.k.a. segments, the following function can be used:
 
 ```{r}
+segments = read_telraam_segments()
+
+segments |> str()
+```
+The following code would show the location of all segments using the `tmap` library.
+
+```{r,eval=FALSE}
 library(tmap)
 tmap_mode("view")
 
