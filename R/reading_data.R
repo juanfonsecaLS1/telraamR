@@ -6,7 +6,7 @@
 #' @param report can only be "per-hour", resulting in hourly aggregated traffic
 #' @param time_start The beginning of the requested time interval
 #' @param time_end The end of the requested time interval (note: the time interval is closed-open, so the end time is not included anymore in the request
-#' @param mytoken the authentication token, if not previously set with the \code{set_TelraamToken} function
+#' @param mytoken the authentication token, if not previously set with `usethis::edit_r_environ()` or the \code{set_TelraamToken} function
 #' @param tz timezone, by default the system timezone
 #' @param include_speed logical, if car speed distribution included in the final data, \code{FALSE} as default
 #'

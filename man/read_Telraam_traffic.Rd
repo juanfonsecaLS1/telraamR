@@ -25,7 +25,7 @@ read_telraam_traffic(
 
 \item{tz}{timezone, by default the system timezone}
 
-\item{mytoken}{the authentication token, if not previously set with the \code{set_TelraamToken} function}
+\item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_TelraamToken} function}
 
 \item{include_speed}{logical, if car speed distribution included in the final data, \code{FALSE} as default}
 }
