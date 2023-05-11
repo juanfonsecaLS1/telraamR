@@ -74,7 +74,7 @@ The hourly report for a single site can be obtained using the `read_Telraam_traf
 ```{r}
 data = read_telraam_traffic(9000003890,
                             time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-14 07:00:00",
+                            time_end = "2023-04-25 07:00:00",
                             report = "per-hour",
                             include_speed = FALSE)
 ```
@@ -82,6 +82,7 @@ data = read_telraam_traffic(9000003890,
 The function returns a data set with the hourly traffic by vehicle type and direction
 
 ```{r}
+dim(data)
 data |>
   str()
 ```
@@ -97,13 +98,25 @@ library(tidyverse)
 ```{r}
 data = read_telraam_traffic(9000003890,
                             time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-10 07:00:00",
+                            time_end = "2023-04-25 07:00:00",
                             report = "per-hour",
                             include_speed = TRUE)
-
+dim(data)
 data |>
-  select(date,starts_with("car speed")) |>
+  select(date, starts_with("car speed")) |>
   str()
+```
+
+We can visualise the number of cars per day using the following code:
+
+```{r cars_per_day}
+data |> 
+  group_by(date) |> 
+  summarise(cars = sum(car)) |> 
+  ggplot(aes(x=date, y=cars)) + 
+  geom_line() + 
+  labs(x="Date", y="Number of cars")
+```
 ```
 
 ### Segments Location
