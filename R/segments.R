@@ -39,7 +39,7 @@ read_telraam_segments = function(mytoken = get_telraam_token()
   # Warning: st_crs<- : replacing crs does not reproject data; use st_transform for that
   suppressWarnings(st_crs(my_response) <- "EPSG:31370")
 
-  my_segments = st_transform(my_response,crs = 3857)
+  my_segments = st_transform(my_response,crs = 4326)
 
   return(my_segments)
 }
