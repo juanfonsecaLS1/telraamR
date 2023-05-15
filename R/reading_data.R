@@ -10,12 +10,9 @@
 #' @param tz timezone, by default the system timezone
 #' @param include_speed logical, if car speed distribution included in the final data, \code{FALSE} as default
 #'
-#' @importFrom httr VERB
-#' @importFrom httr add_headers
-#' @importFrom httr content
+#' @importFrom httr VERB add_headers content
 #' @importFrom rjson fromJSON
-#' @importFrom lubridate ymd_hms
-#' @importFrom lubridate `tz<-`
+#' @importFrom lubridate ymd_hms hour wday `tz<-`
 #'
 #'
 #'
@@ -151,7 +148,11 @@ read_telraam_traffic = function(id,
     mydata = cbind(mydata,mydata_speed)
   }
 
-  mydata$date = ymd_hms(mydata$date)
+  ## Adds columns for date, day of the week and hour
+  mydata$datetime = ymd_hms(mydata$date)
+  mydata$date = as.Date(mydata$datetime)
+  mydata$day = wday(mydata$datetime, week_start = 1)
+  mydata$hr = hour(mydata$datetime)
 
   return(mydata)
 }
