@@ -103,7 +103,7 @@ data = read_telraam_traffic(9000003890,
                             include_speed = TRUE)
 dim(data)
 data |>
-  select(date, starts_with("car speed")) |>
+  select(segment_id,date, starts_with("car speed")) |>
   str()
 ```
 
@@ -124,9 +124,9 @@ data |>
 To obtain the location of the network links a.k.a. segments, the following function can be used:
 
 ```{r}
-segments = read_telraam_segments()
+my_segments = read_telraam_segments()
 
-segments |> str()
+my_segments |> str()
 ```
 The following code would show the location of all segments using the `tmap` library.
 
@@ -134,7 +134,7 @@ The following code would show the location of all segments using the `tmap` libr
 library(tmap)
 tmap_mode("view")
 
-tm_shape(segments)+tm_lines()
+tm_shape(my_segments)+tm_lines()
 ```
-
+![](map_segments.png)
 
