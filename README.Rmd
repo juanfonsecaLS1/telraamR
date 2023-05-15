@@ -66,6 +66,23 @@ cameras_summary = read_telraam_cameras()
 cameras_summary |> str()
 ```
 
+### Segments Location
+
+To obtain the location of the network links a.k.a. segments, the following function can be used:
+
+```{r}
+my_segments = read_telraam_segments()
+
+my_segments |> str()
+```
+The following code would show the location of all segments using the `tmap` library.
+
+```{r map_segments, echo=TRUE,dpi=72,message=FALSE}
+library(tmap)
+tmap_mode("view")
+tm_shape(my_segments)+tm_lines()
+```
+
 
 ### Traffic data
 
@@ -118,21 +135,14 @@ data |>
   labs(x="Date", y="Number of cars")
 ```
 
-### Segments Location
 
-To obtain the location of the network links a.k.a. segments, the following function can be used:
+#### Directional flows
 
+Once the traffic data is available, the `tidy_directional` function can be used for 
+formatting the traffic data:
 ```{r}
-my_segments = read_telraam_segments()
-
-my_segments |> str()
-```
-The following code would show the location of all segments using the `tmap` library.
-
-```{r map_segments, echo=TRUE,dpi=72,message=FALSE}
-library(tmap)
-tmap_mode("view")
-tm_shape(my_segments)+tm_lines()
+data |> 
+  tidy_directional()
 ```
 
 
