@@ -1,6 +1,7 @@
 #' Read all cameras
 #'
-#' @param mytoken the authentication token, if not previously set with the \code{set_TelraamToken} function
+#' @inheritParams read_telraam_traffic
+#' @param usecache `logical` used to store the API response in the cache of the package, `TRUE` as default
 #'
 #' @return a data frame with the data for all cameras in telraam
 #' @export
@@ -20,7 +21,14 @@
 #' \dontrun{
 #' read_telraam_cameras()
 #' }
-read_telraam_cameras = function(mytoken = get_telraam_token()){
+read_telraam_cameras = function(mytoken = get_telraam_token(),
+                                usecache = T){
+
+  if (exists("telraamcameras", envir = cacheEnv) &
+      usecache) {
+    return(get("telraamcameras", envir = cacheEnv))
+  }
+
 
   # Call preparation
   headers = c('X-Api-Key' = mytoken)
@@ -44,6 +52,7 @@ read_telraam_cameras = function(mytoken = get_telraam_token()){
     mutate(across(starts_with("time"), ymd_hms),
            across(ends_with("data_package"), ymd_hms))
 
+  assign("telraamcameras", my_cameras_df, envir = cacheEnv)
 
   return(my_cameras_df)
 

@@ -4,10 +4,12 @@
 \alias{read_telraam_cameras}
 \title{Read all cameras}
 \usage{
-read_telraam_cameras(mytoken = get_telraam_token())
+read_telraam_cameras(mytoken = get_telraam_token(), usecache = T)
 }
 \arguments{
-\item{mytoken}{the authentication token, if not previously set with the \code{set_TelraamToken} function}
+\item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_TelraamToken} function}
+
+\item{usecache}{\code{logical} used to store the API response in the cache of the package, \code{TRUE} as default}
 }
 \value{
 a data frame with the data for all cameras in telraam

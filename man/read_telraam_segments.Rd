@@ -4,10 +4,12 @@
 \alias{read_telraam_segments}
 \title{Obtain the telraam segments as a sf object}
 \usage{
-read_telraam_segments(mytoken = get_telraam_token())
+read_telraam_segments(mytoken = get_telraam_token(), usecache = T)
 }
 \arguments{
 \item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_TelraamToken} function}
+
+\item{usecache}{\code{logical} used to store the API response in the cache of the package, \code{TRUE} as default}
 }
 \value{
 a sf object with all segments with the id

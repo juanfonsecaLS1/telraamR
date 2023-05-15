@@ -3,6 +3,7 @@
 #' Obtain the telraam segments as a sf object
 #'
 #' @inheritParams read_telraam_traffic
+#' @param usecache `logical` used to store the API response in the cache of the package, `TRUE` as default
 #'
 #' @return a sf object with all segments with the id
 #' @export
@@ -21,8 +22,13 @@
 #' read_telraam_segments()
 #' }
 #'
-read_telraam_segments = function(mytoken = get_telraam_token()
-                                 ){
+read_telraam_segments = function(mytoken = get_telraam_token(),
+                                 usecache = T){
+
+  if (exists("telraamsegments", envir = cacheEnv) &
+      usecache) {
+    return(get("telraamsegments", envir = cacheEnv))
+  }
 
   # Call preparation
   headers = c('X-Api-Key' = mytoken)
@@ -40,6 +46,8 @@ read_telraam_segments = function(mytoken = get_telraam_token()
   suppressWarnings(st_crs(my_response) <- "EPSG:31370")
 
   my_segments = st_transform(my_response,crs = 4326)
+
+  assign("telraamsegments", my_segments, envir = cacheEnv)
 
   return(my_segments)
 }
