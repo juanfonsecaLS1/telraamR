@@ -215,16 +215,16 @@ data |>
 
 ![](README_files/figure-gfm/cars_per_day-1.png)<!-- -->
 
+### Segments Location
 
-    ### Segments Location
+To obtain the location of the network links a.k.a. segments, the
+following function can be used:
 
-    To obtain the location of the network links a.k.a. segments, the following function can be used:
+``` r
+my_segments = read_telraam_segments()
 
-
-    ```r
-    my_segments = read_telraam_segments()
-
-    my_segments |> str()
+my_segments |> str()
+```
 
     ## Classes 'sf' and 'data.frame':   5769 obs. of  2 variables:
     ##  $ oidn    : num  9e+09 9e+09 9e+09 9e+09 9e+09 ...
@@ -239,8 +239,7 @@ The following code would show the location of all segments using the
 ``` r
 library(tmap)
 tmap_mode("view")
-
 tm_shape(my_segments)+tm_lines()
 ```
 
-![](map_segments.png)
+![](README_files/figure-gfm/map_segments-1.png)<!-- -->

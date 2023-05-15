@@ -117,7 +117,6 @@ data |>
   geom_line() + 
   labs(x="Date", y="Number of cars")
 ```
-```
 
 ### Segments Location
 
@@ -130,11 +129,10 @@ my_segments |> str()
 ```
 The following code would show the location of all segments using the `tmap` library.
 
-```{r,eval=FALSE}
+```{r map_segments, echo=TRUE,dpi=72,message=FALSE}
 library(tmap)
 tmap_mode("view")
-
 tm_shape(my_segments)+tm_lines()
 ```
-![](map_segments.png)
+
 
