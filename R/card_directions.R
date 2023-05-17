@@ -70,6 +70,7 @@ get_cardinal_dirs = function(mysegments){
 #' @importFrom sf st_drop_geometry
 #' @importFrom stringr str_extract
 #' @importFrom dplyr mutate select left_join
+#' @importFrom rlang .data
 #'
 #' @examples
 #' \dontrun{
@@ -89,10 +90,10 @@ tidy_directional = function(data) {
   sel_segments = all_segments[all_segments$oidn %in% oids, ]
 
   lfrg2card = get_cardinal_dirs(sel_segments) |>
-    pivot_longer(cols = -oidn,
+    pivot_longer(cols = -all_of("oidn"),
                  names_to = "view_direction",
                  values_to = "road_dir") |>
-    mutate(road_dir = as.character(road_dir))
+    mutate(road_dir = as.character(.data$road_dir))
 
 
   sel_cols =  c("instance_id","direction", "interval", "heavy", "car", "bike", "pedestrian",names(data)[grepl("speed",names(data))])
@@ -106,11 +107,23 @@ tidy_directional = function(data) {
       cols = all_of(dir_cols),
       values_to = "flow") |>
     mutate(
-      view_direction = str_extract(string = name, pattern = "(lft|rgt)"),
-      type = str_extract(string = name, pattern = "(heavy|car|bike|pedestrian)")
+      view_direction = str_extract(string = .data$name, pattern = "(lft|rgt)"),
+      type = str_extract(string = .data$name, pattern = "(heavy|car|bike|pedestrian)")
     ) |>
     left_join(lfrg2card, by = c("segment_id" = "oidn", "view_direction")) |>
-    select(segment_id:hr, road_dir, type, flow)
+    select(all_of(
+      c(
+        "segment_id",
+        "uptime",
+        "timezone",
+        "datetime",
+        "day",
+        "hr",
+        "road_dir",
+        "type",
+        "flow"
+      )
+    ))
 
   return(long_dir)
 }

@@ -1,4 +1,6 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+^.*\README_files
 ^LICENSE\.md$
 ^README.Rmd
+^README_files$
