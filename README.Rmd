@@ -153,6 +153,8 @@ dir_data |>
   ggplot(aes(x=hr,y=flow,col=road_dir))+
   geom_line(aes(group=factor(date)),alpha = 0.2)+
   stat_summary(fun = median,geom = "line",linewidth=1)+
-  facet_grid(.~road_dir)
+  facet_grid(.~road_dir)+
+  labs(x = "Hour", y = "Cars per hour")+
+  theme(legend.position = "none")
 ```
 

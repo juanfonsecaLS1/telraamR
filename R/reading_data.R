@@ -6,8 +6,11 @@
 #' @param report can only be "per-hour", resulting in hourly aggregated traffic
 #' @param time_start The beginning of the requested time interval
 #' @param time_end The end of the requested time interval (note: the time interval is closed-open, so the end time is not included anymore in the request
-#' @param mytoken the authentication token, if not previously set with `usethis::edit_r_environ()` or the \code{set_TelraamToken} function
-#' @param tz timezone, by default the system timezone
+#' @param mytoken the authentication token, if not previously set with `usethis::edit_r_environ()` or the \code{set_telraamToken} function
+#' @param tz timezone, by default the value from `Sys.timezone()` in your machine.
+#'   If the provided time zone is affected by daylight saving time, the conversion of the time might result in `NA` values,
+#'   for the date-time when the clocks change.
+#'
 #' @param include_speed logical, if car speed distribution included in the final data, \code{FALSE} as default
 #'
 #' @importFrom httr VERB add_headers content
@@ -29,13 +32,14 @@
 #' # 1. Run the following line
 #' usethis::edit_r_environ()
 #'
-#' # 2. Add a line as telraam = "your token goes here"
+#' # 2. Add the following line:
+#'     telraam = "your token goes here"
 #' # 3. Restart your R session
 #'
 #' # Setting up the PAT Method 2:
 #' my_token = readLines(con = "mytoken.txt",warn = FALSE)
 #'
-#'
+#' # Using the function
 #' read_telraam_traffic(9000003890,
 #'                      time_start = "2023-03-25 07:00:00",
 #'                      time_end = "2023-03-30 07:00:00")
@@ -150,6 +154,9 @@ read_telraam_traffic = function(id,
 
   ## Adds columns for date, day of the week and hour
   mydata$datetime = ymd_hms(mydata$date)
+  tz(mydata$datetime) = tz
+  mydata$timezone = tz
+
   mydata$date = as.Date(mydata$datetime)
   mydata$day = wday(mydata$datetime, week_start = 1)
   mydata$hr = hour(mydata$datetime)

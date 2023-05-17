@@ -7,7 +7,7 @@
 read_telraam_cameras(mytoken = get_telraam_token(), usecache = T)
 }
 \arguments{
-\item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_TelraamToken} function}
+\item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_telraamToken} function}
 
 \item{usecache}{\code{logical} used to store the API response in the cache of the package, \code{TRUE} as default}
 }
