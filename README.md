@@ -8,6 +8,7 @@ experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](h
 [![Project Status: Active – The project has reached a stable, usable
 state and is being actively
 developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
 <!-- badges: end -->
 
 This package provides wrappers for Telraam API calls
@@ -68,26 +69,26 @@ cameras_summary = read_telraam_cameras()
 cameras_summary |> str()
 ```
 
-    ## tibble [7,026 × 19] (S3: tbl_df/tbl/data.frame)
-    ##  $ instance_id        : num [1:7026] 1585 5474 4034 6654 5504 ...
-    ##  $ mac                : num [1:7026] 2.02e+14 2.02e+14 2.02e+14 2.02e+14 2.02e+14 ...
-    ##  $ user_id            : num [1:7026] 1540 5944 4407 7154 5926 ...
-    ##  $ segment_id         : num [1:7026] 9e+09 9e+09 9e+09 9e+09 9e+09 ...
-    ##  $ direction          : logi [1:7026] TRUE TRUE TRUE FALSE FALSE FALSE ...
-    ##  $ status             : chr [1:7026] "non_active" "active" "non_active" "active" ...
-    ##  $ manual             : logi [1:7026] FALSE FALSE FALSE FALSE FALSE FALSE ...
-    ##  $ time_added         : POSIXct[1:7026], format: "2020-09-23 14:19:36" "2022-06-10 17:52:12" ...
-    ##  $ time_end           : POSIXct[1:7026], format: NA NA ...
-    ##  $ last_data_package  : POSIXct[1:7026], format: "2023-05-13 06:57:11" "2023-05-17 18:03:49" ...
-    ##  $ first_data_package : POSIXct[1:7026], format: "2020-09-23 15:00:00" "2022-06-10 17:52:30" ...
-    ##  $ pedestrians_left   : logi [1:7026] TRUE FALSE TRUE TRUE TRUE FALSE ...
-    ##  $ pedestrians_right  : logi [1:7026] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ bikes_left         : logi [1:7026] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ bikes_right        : logi [1:7026] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ cars_left          : logi [1:7026] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ cars_right         : logi [1:7026] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ is_calibration_done: chr [1:7026] "yes" "yes" "yes" "no" ...
-    ##  $ hardware_version   : num [1:7026] 1 1 1 1 1 1 1 1 1 1 ...
+    ## tibble [7,875 × 19] (S3: tbl_df/tbl/data.frame)
+    ##  $ instance_id        : num [1:7875] 6711 6384 6451 6095 1388 ...
+    ##  $ mac                : num [1:7875] 2.02e+14 2.02e+14 2.02e+14 2.02e+14 2.02e+14 ...
+    ##  $ user_id            : num [1:7875] 6830 6869 3666 6550 2406 ...
+    ##  $ segment_id         : num [1:7875] 9e+09 9e+09 9e+09 9e+09 9e+09 ...
+    ##  $ direction          : logi [1:7875] TRUE TRUE FALSE TRUE TRUE TRUE ...
+    ##  $ status             : chr [1:7875] "active" "non_active" "non_active" "active" ...
+    ##  $ manual             : logi [1:7875] FALSE FALSE FALSE FALSE FALSE FALSE ...
+    ##  $ time_added         : POSIXct[1:7875], format: "2023-03-19 10:09:23" "2022-12-27 09:41:03" ...
+    ##  $ time_end           : POSIXct[1:7875], format: NA NA ...
+    ##  $ last_data_package  : POSIXct[1:7875], format: "2023-09-25 13:03:49" "2023-07-22 08:30:14" ...
+    ##  $ first_data_package : POSIXct[1:7875], format: "2023-04-06 12:30:52" "2022-12-27 09:41:45" ...
+    ##  $ pedestrians_left   : logi [1:7875] TRUE FALSE FALSE TRUE TRUE TRUE ...
+    ##  $ pedestrians_right  : logi [1:7875] TRUE TRUE TRUE FALSE TRUE TRUE ...
+    ##  $ bikes_left         : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ bikes_right        : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ cars_left          : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ cars_right         : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ is_calibration_done: chr [1:7875] "yes" "yes" "yes" "yes" ...
+    ##  $ hardware_version   : num [1:7875] 1 1 1 1 1 1 1 1 1 0 ...
 
 ### Segments Location
 
@@ -100,9 +101,9 @@ my_segments = read_telraam_segments()
 my_segments |> str()
 ```
 
-    ## Classes 'sf' and 'data.frame':   5796 obs. of  2 variables:
+    ## Classes 'sf' and 'data.frame':   6464 obs. of  2 variables:
     ##  $ oidn    : num  9e+09 9e+09 9e+09 9e+09 9e+09 ...
-    ##  $ geometry:sfc_MULTILINESTRING of length 5796; first list element: List of 1
+    ##  $ geometry:sfc_MULTILINESTRING of length 6464; first list element: List of 1
     ##   ..$ : num [1:5, 1:2] 3.3 3.3 3.3 3.3 3.3 ...
     ##   ..- attr(*, "class")= chr [1:3] "XY" "MULTILINESTRING" "sfg"
     ##  - attr(*, "sf_column")= chr "geometry"
@@ -116,7 +117,7 @@ tmap_mode("view")
 tm_shape(my_segments)+tm_lines()
 ```
 
-![](README_files/figure-gfm/map_segments-1.png)<!-- -->
+![](README_files/figure-gfm/map_segments-1.png)
 
 ### Traffic data
 
@@ -178,11 +179,11 @@ library(tidyverse)
 ```
 
     ## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-    ## ✔ dplyr     1.1.2     ✔ readr     2.1.4
+    ## ✔ dplyr     1.1.3     ✔ readr     2.1.4
     ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-    ## ✔ ggplot2   3.4.2     ✔ tibble    3.2.1
+    ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
     ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-    ## ✔ purrr     1.0.1     
+    ## ✔ purrr     1.0.2     
     ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
     ## ✖ dplyr::lag()    masks stats::lag()
@@ -259,25 +260,25 @@ dir_data = data |>
   tidy_directional()
 ```
 
-    ## Linking to GEOS 3.9.3, GDAL 3.5.2, PROJ 8.2.1; sf_use_s2() is TRUE
+    ## Linking to GEOS 3.11.2, GDAL 3.6.2, PROJ 9.2.0; sf_use_s2() is TRUE
 
 ``` r
 dir_data
 ```
 
     ## # A tibble: 5,760 × 10
-    ##    segment_id date       uptime timezone      datetime              day    hr
-    ##         <dbl> <date>      <dbl> <chr>         <dttm>              <dbl> <int>
-    ##  1 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  2 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  3 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  4 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  5 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  6 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  7 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  8 9000003890 2023-03-25  0.762 Europe/London 2023-03-25 07:00:00     6     7
-    ##  9 9000003890 2023-03-25  0.764 Europe/London 2023-03-25 08:00:00     6     8
-    ## 10 9000003890 2023-03-25  0.764 Europe/London 2023-03-25 08:00:00     6     8
+    ##    segment_id uptime timezone      date       datetime              day    hr
+    ##         <dbl>  <dbl> <chr>         <date>     <dttm>              <dbl> <int>
+    ##  1 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  2 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  3 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  4 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  5 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  6 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  7 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  8 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7
+    ##  9 9000003890  0.764 Europe/London 2023-03-25 2023-03-25 08:00:00     6     8
+    ## 10 9000003890  0.764 Europe/London 2023-03-25 2023-03-25 08:00:00     6     8
     ## # ℹ 5,750 more rows
     ## # ℹ 3 more variables: road_dir <chr>, type <chr>, flow <dbl>
 
@@ -287,17 +288,16 @@ direction:
 
 ``` r
 dir_data |>
-  filter(type=="car") |> 
-  ggplot(aes(x=hr,y=flow,col=road_dir))+
-  geom_line(aes(group=factor(date)),alpha = 0.2)+
-  stat_summary(fun = median,geom = "line",linewidth=1)+
-  facet_grid(.~road_dir)+
-  labs(x = "Hour", y = "Cars per hour")+
+  filter(type == "car") |>
+  drop_na(date) |>
+  ggplot(aes(x = hr, y = flow, col = road_dir)) +
+  geom_line(aes(group = factor(date)), alpha = 0.2) +
+  stat_summary(fun = median,
+               geom = "line",
+               linewidth = 1) +
+  facet_grid(. ~ road_dir) +
+  labs(x = "Hour", y = "Cars per hour") +
   theme(legend.position = "none")
 ```
-
-    ## Warning: Removed 2 rows containing non-finite values (`stat_summary()`).
-
-    ## Warning: Removed 2 rows containing missing values (`geom_line()`).
 
 ![](README_files/figure-gfm/directional_plot_car-1.png)<!-- -->

@@ -8,8 +8,8 @@
 #' @param time_end The end of the requested time interval (note: the time interval is closed-open, so the end time is not included anymore in the request
 #' @param mytoken the authentication token, if not previously set with `usethis::edit_r_environ()` or the \code{set_telraamToken} function
 #' @param tz timezone, by default the value from `Sys.timezone()` in your machine.
-#'   If the provided time zone is affected by daylight saving time, the conversion of the time might result in `NA` values,
-#'   for the date-time when the clocks change.
+#'   If the provided time zone is affected by daylight saving time, the conversion of the time might result in `NA` values
+#'   for the datetime when the clocks change.
 #'
 #' @param include_speed logical, if car speed distribution included in the final data, \code{FALSE} as default
 #'

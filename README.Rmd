@@ -3,14 +3,14 @@ title: "telraamR"
 output: github_document
 ---
 
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
 <!-- badges: start -->
-[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
+[![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental) [![Project Status: Active -- The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+
 <!-- badges: end -->
 
 This package provides wrappers for Telraam API calls
@@ -35,7 +35,6 @@ To load the package:
 library(telraamR)
 ```
 
-
 ## Set the Authentintication token
 
 An authentication token is needed for using the Telraam API. If you do not have one, you can obtain one by registering in Telraam [here](https://www.telraam.net/en/register). Once you have obtained the token, it can be set using the following line of code:
@@ -44,13 +43,11 @@ An authentication token is needed for using the Telraam API. If you do not have 
 usethis::edit_r_environ()
 ```
 
-Save your token into the `.Renviron` file that is opened when you execute the command above and restart your session.
-You can check to see if the token has been loaded as follows:
+Save your token into the `.Renviron` file that is opened when you execute the command above and restart your session. You can check to see if the token has been loaded as follows:
 
 ```{r,eval=F}
 Sys.getenv("telraam")
 ```
-
 
 The authentication token can also be provided in the `mytoken` argument of functions that call the Telraam API.
 
@@ -75,14 +72,16 @@ my_segments = read_telraam_segments()
 
 my_segments |> str()
 ```
+
 The following code would show the location of all segments using the `tmap` library.
 
-```{r map_segments, echo=TRUE,dpi=72,message=FALSE}
+```{r map_segments, echo=TRUE,dpi=72,message=FALSE,eval=FALSE}
 library(tmap)
 tmap_mode("view")
 tm_shape(my_segments)+tm_lines()
 ```
 
+![](README_files/figure-gfm/map_segments-1.png)
 
 ### Traffic data
 
@@ -104,13 +103,11 @@ data |>
   str()
 ```
 
-
 If the `include_speed` is set as `TRUE`. The returned data frame will include the binned speed distribution for cars
 
 ```{r,results='hide',warning=FALSE}
 library(tidyverse)
 ```
-
 
 ```{r}
 data = read_telraam_traffic(9000003890,
@@ -135,11 +132,10 @@ data |>
   labs(x="Date", y="Number of cars")
 ```
 
-
 #### Directional flows
 
-Once the traffic data is available, the `tidy_directional` function can be used for 
-formatting the traffic data:
+Once the traffic data is available, the `tidy_directional` function can be used for formatting the traffic data:
+
 ```{r}
 dir_data = data |>
   tidy_directional()
@@ -147,14 +143,17 @@ dir_data
 ```
 
 The new formatted data eases visualisations or analysis by direction. For example, the following code shows the median car hourly-flow by direction:
+
 ```{r directional_plot_car}
 dir_data |>
-  filter(type=="car") |> 
-  ggplot(aes(x=hr,y=flow,col=road_dir))+
-  geom_line(aes(group=factor(date)),alpha = 0.2)+
-  stat_summary(fun = median,geom = "line",linewidth=1)+
-  facet_grid(.~road_dir)+
-  labs(x = "Hour", y = "Cars per hour")+
+  filter(type == "car") |>
+  drop_na(date) |>
+  ggplot(aes(x = hr, y = flow, col = road_dir)) +
+  geom_line(aes(group = factor(date)), alpha = 0.2) +
+  stat_summary(fun = median,
+               geom = "line",
+               linewidth = 1) +
+  facet_grid(. ~ road_dir) +
+  labs(x = "Hour", y = "Cars per hour") +
   theme(legend.position = "none")
 ```
-

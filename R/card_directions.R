@@ -116,6 +116,7 @@ tidy_directional = function(data) {
         "segment_id",
         "uptime",
         "timezone",
+        "date",
         "datetime",
         "day",
         "hr",
