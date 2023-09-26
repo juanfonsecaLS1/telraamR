@@ -2,8 +2,8 @@
 #'
 #' @param mysegments an `sf` object with the segments
 #'
-#' @return a `data.frame` with the correspondence of left `lft` and right `rgt`directions
-#'  to cardinal directions of the road
+#' @return a `data.frame` with the correspondence of left `lft` and
+#' right `rgt`directions to cardinal directions of the road
 #' @export
 #'
 #' @importFrom stplanr line_bearing
@@ -16,38 +16,45 @@
 #'
 #' get_cardinal_dirs(anysegment)
 #' }
-get_cardinal_dirs = function(mysegments){
-
+get_cardinal_dirs = function(mysegments) {
   bearings = line_bearing(mysegments)
 
   # Ensuring values are between 0 and 360
-  bearings[bearings<0]=bearings[bearings<0]+360
-  bearings[bearings>360]=bearings[bearings>360]-360
+  bearings[bearings < 0] = bearings[bearings < 0] + 360
+  bearings[bearings > 360] = bearings[bearings > 360] - 360
 
   # Calculating opposite
   bearings_op = bearings + 180
-  bearings_op[bearings_op>360]=bearings_op[bearings_op>360]-360
+  bearings_op[bearings_op > 360] = bearings_op[bearings_op > 360] - 360
 
-  breaks = seq(-22.5, 360+22.5, by=45)
-  labels = c("Northbound",
-             "Northeastbound",
-             "Eastbound",
-             "Southeastbound",
-             "Southbound",
-             "Southwestbound",
-             "Westbound",
-             "Northwestbound",
-             "Northbound")
-  df_directions = data.frame(lft=cut(bearings,
-                                     breaks,
-                                     labels,
-                                     include.lowest = TRUE,
-                                     ordered_result = F),
-                             rgt=cut(bearings_op,
-                                     breaks,
-                                     labels,
-                                     include.lowest = TRUE,
-                                     ordered_result = F))
+  breaks = seq(-22.5, 360 + 22.5, by = 45)
+  labels = c(
+    "Northbound",
+    "Northeastbound",
+    "Eastbound",
+    "Southeastbound",
+    "Southbound",
+    "Southwestbound",
+    "Westbound",
+    "Northwestbound",
+    "Northbound"
+  )
+  df_directions = data.frame(
+    lft = cut(
+      bearings,
+      breaks,
+      labels,
+      include.lowest = TRUE,
+      ordered_result = F
+    ),
+    rgt = cut(
+      bearings_op,
+      breaks,
+      labels,
+      include.lowest = TRUE,
+      ordered_result = F
+    )
+  )
 
 
 
@@ -87,16 +94,27 @@ tidy_directional = function(data) {
   oids = unique(data$segment_id)
 
   all_segments = read_telraam_segments()
-  sel_segments = all_segments[all_segments$oidn %in% oids, ]
+  sel_segments = all_segments[all_segments$oidn %in% oids,]
 
   lfrg2card = get_cardinal_dirs(sel_segments) |>
-    pivot_longer(cols = -all_of("oidn"),
-                 names_to = "view_direction",
-                 values_to = "road_dir") |>
+    pivot_longer(
+      cols = -all_of("oidn"),
+      names_to = "view_direction",
+      values_to = "road_dir"
+    ) |>
     mutate(road_dir = as.character(.data$road_dir))
 
 
-  sel_cols =  c("instance_id","direction", "interval", "heavy", "car", "bike", "pedestrian",names(data)[grepl("speed",names(data))])
+  sel_cols =  c(
+    "instance_id",
+    "direction",
+    "interval",
+    "heavy",
+    "car",
+    "bike",
+    "pedestrian",
+    names(data)[grepl("speed", names(data))]
+  )
 
   dir_data = data [, !(names(data) %in% sel_cols)]
 

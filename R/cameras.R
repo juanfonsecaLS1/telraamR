@@ -24,16 +24,19 @@
 read_telraam_cameras = function(mytoken = get_telraam_token(),
                                 usecache = T){
 
-  if (exists("telraamcameras", envir = cacheEnv) &
-      usecache) {
-    return(get("telraamcameras", envir = cacheEnv))
+  if (exists("telraamcameras",
+             envir = cacheEnv) & usecache) {
+    return(get("telraamcameras",
+               envir = cacheEnv))
   }
 
 
   # Call preparation
   headers = c('X-Api-Key' = mytoken)
 
-  res <- VERB("GET", url = "https://telraam-api.net/v1/cameras", add_headers(headers))
+  res <- VERB("GET",
+              url = "https://telraam-api.net/v1/cameras",
+              add_headers(headers))
 
   my_response = fromJSON(content(res,
                                  'text',

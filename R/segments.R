@@ -1,5 +1,3 @@
-
-
 #' Obtain the telraam segments as a sf object
 #'
 #' @inheritParams read_telraam_traffic
@@ -23,8 +21,7 @@
 #' }
 #'
 read_telraam_segments = function(mytoken = get_telraam_token(),
-                                 usecache = T){
-
+                                 usecache = T) {
   if (exists("telraamsegments", envir = cacheEnv) &
       usecache) {
     return(get("telraamsegments", envir = cacheEnv))
@@ -33,7 +30,8 @@ read_telraam_segments = function(mytoken = get_telraam_token(),
   # Call preparation
   headers = c('X-Api-Key' = mytoken)
 
-  res <- VERB("GET", url = "https://telraam-api.net/v1/segments/all", add_headers(headers))
+  res <-
+    VERB("GET", url = "https://telraam-api.net/v1/segments/all", add_headers(headers))
 
   my_response = geojson_sf(content(res,
                                    'text',
@@ -45,7 +43,7 @@ read_telraam_segments = function(mytoken = get_telraam_token(),
   # Warning: st_crs<- : replacing crs does not reproject data; use st_transform for that
   suppressWarnings(st_crs(my_response) <- "EPSG:31370")
 
-  my_segments = st_transform(my_response,crs = 4326)
+  my_segments = st_transform(my_response, crs = 4326)
 
   assign("telraamsegments", my_segments, envir = cacheEnv)
 
