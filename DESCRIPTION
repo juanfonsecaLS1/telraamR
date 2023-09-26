@@ -20,3 +20,5 @@ Imports:
     stplanr (>= 1.0.2),
     stringr (>= 1.5.0),
     tidyr (>= 1.3.0)
+URL: https://github.com/juanfonsecaLS1/telraamR
+BugReports: https://github.com/juanfonsecaLS1/telraamR/issues
