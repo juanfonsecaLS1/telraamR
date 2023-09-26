@@ -3,8 +3,11 @@ Type: Package
 Title: Interface for the telraam API
 Version: 0.1.1
 Authors@R: 
-    person("Juan Pablo", "Fonseca Zamora", , "ts18jpf@leeds.ac.uk", role = c("aut", "cre"))
-Description: A package to wrap the common API calls of the telraam API.
+    c(
+    person("Juan Pablo", "Fonseca Zamora", , email = "ts18jpf@leeds.ac.uk", role = c("aut", "cre")),
+    person("Robin", "Lovelace",  role = c("ctb"), comment = c(ORCID = "0000-0001-5679-6536"))
+    )
+Description: A package to wrap the common calls of the telraam API.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
