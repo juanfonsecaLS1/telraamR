@@ -4,7 +4,8 @@ output: github_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE,
+                      fig.path = "man/figures/")
 ```
 
 <!-- badges: start -->
@@ -81,7 +82,7 @@ tmap_mode("view")
 tm_shape(my_segments) + tm_lines()
 ```
 
-![](README_files/figure-gfm/map_segments-1.png)
+![](man/figures/map_segments-1.png)
 
 ### Traffic data
 
@@ -106,7 +107,7 @@ data |>
 
 If the `include_speed` is set as `TRUE`. The returned data frame will include the binned speed distribution for cars
 
-```{r,results='hide',warning=FALSE}
+```{r,results='hide',warning=FALSE,message=FALSE}
 library(tidyverse)
 ```
 
