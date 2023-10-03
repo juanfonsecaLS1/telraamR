@@ -4,7 +4,9 @@ Title: Interface for the telraam API
 Version: 0.1.1
 Authors@R: 
     c(
-    person("Juan Pablo", "Fonseca Zamora", , email = "ts18jpf@leeds.ac.uk", role = c("aut", "cre")),
+    person("Juan Pablo", "Fonseca Zamora", , email = "ts18jpf@leeds.ac.uk",
+    role = c("aut", "cre"),
+    comment = c(ORDCID = "0009-0006-7042-3828")),
     person("Robin", "Lovelace",  role = c("ctb"), comment = c(ORCID = "0000-0001-5679-6536"))
     )
 Description: A package to wrap the common calls of the telraam API.

@@ -10,8 +10,8 @@ get_cardinal_dirs(mysegments)
 \item{mysegments}{an \code{sf} object with the segments}
 }
 \value{
-a \code{data.frame} with the correspondence of left \code{lft} and right \code{rgt}directions
-to cardinal directions of the road
+a \code{data.frame} with the correspondence of left \code{lft} and
+right \code{rgt}directions to cardinal directions of the road
 }
 \description{
 Get the cardinal directions for the segments
