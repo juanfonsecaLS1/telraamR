@@ -102,26 +102,26 @@
 <code class="sourceCode R"><span><span class="va">cameras_summary</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_telraam_cameras.html">read_telraam_cameras</a></span><span class="op">(</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">cameras_summary</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## tibble [7,938 × 19] (S3: tbl_df/tbl/data.frame)</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ instance_id        : num [1:7938] 5641 6818 6927 3454 5729 ...</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ mac                : num [1:7938] 2.02e+14 3.50e+14 2.02e+14 2.02e+14 2.02e+14 ...</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ user_id            : num [1:7938] 6121 7287 3510 3751 6187 ...</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ segment_id         : num [1:7938] 9e+09 9e+09 9e+09 9e+09 9e+09 ...</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ direction          : logi [1:7938] TRUE TRUE FALSE TRUE TRUE TRUE ...</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ status             : chr [1:7938] "stopped" "non_active" "stopped" "active" ...</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ manual             : logi [1:7938] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ time_added         : POSIXct[1:7938], format: "2022-07-08 16:33:42" "2023-04-03 18:43:54" ...</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ time_end           : POSIXct[1:7938], format: "2023-05-23 14:26:42" NA ...</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ last_data_package  : POSIXct[1:7938], format: "2023-05-23 14:25:50" "2023-06-17 07:30:08" ...</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ first_data_package : POSIXct[1:7938], format: "2022-07-08 16:34:10" "2023-04-03 18:45:09" ...</span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ pedestrians_left   : logi [1:7938] TRUE TRUE FALSE FALSE TRUE TRUE ...</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ pedestrians_right  : logi [1:7938] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ bikes_left         : logi [1:7938] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ bikes_right        : logi [1:7938] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ cars_left          : logi [1:7938] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ cars_right         : logi [1:7938] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ is_calibration_done: chr [1:7938] "yes" "no" "yes" "yes" ...</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ hardware_version   : num [1:7938] 1 2 1 1 1 1 1 1 1 NA ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="do">## tibble [7,939 × 19] (S3: tbl_df/tbl/data.frame)</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ instance_id        : num [1:7939] 5641 6818 6927 3454 5729 ...</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ mac                : num [1:7939] 2.02e+14 3.50e+14 2.02e+14 2.02e+14 2.02e+14 ...</span></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ user_id            : num [1:7939] 6121 7287 3510 3751 6187 ...</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ segment_id         : num [1:7939] 9e+09 9e+09 9e+09 9e+09 9e+09 ...</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ direction          : logi [1:7939] TRUE TRUE FALSE TRUE TRUE TRUE ...</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ status             : chr [1:7939] "stopped" "non_active" "stopped" "active" ...</span></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ manual             : logi [1:7939] FALSE FALSE FALSE FALSE FALSE FALSE ...</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ time_added         : POSIXct[1:7939], format: "2022-07-08 16:33:42" "2023-04-03 18:43:54" ...</span></span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ time_end           : POSIXct[1:7939], format: "2023-05-23 14:26:42" NA ...</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ last_data_package  : POSIXct[1:7939], format: "2023-05-23 14:25:50" "2023-06-17 07:30:08" ...</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ first_data_package : POSIXct[1:7939], format: "2022-07-08 16:34:10" "2023-04-03 18:45:09" ...</span></span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ pedestrians_left   : logi [1:7939] TRUE TRUE FALSE FALSE TRUE TRUE ...</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ pedestrians_right  : logi [1:7939] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ bikes_left         : logi [1:7939] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ bikes_right        : logi [1:7939] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ cars_left          : logi [1:7939] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ cars_right         : logi [1:7939] TRUE TRUE TRUE TRUE TRUE TRUE ...</span></span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ is_calibration_done: chr [1:7939] "yes" "no" "yes" "yes" ...</span></span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ hardware_version   : num [1:7939] 1 2 1 1 1 1 1 1 1 NA ...</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="segments-location">Segments Location<a class="anchor" aria-label="anchor" href="#segments-location"></a>
@@ -142,7 +142,7 @@
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://r-tmap.github.io/tmap/" class="external-link">tmap</a></span><span class="op">)</span></span>
 <span><span class="fu">tmap_mode</span><span class="op">(</span><span class="st">"view"</span><span class="op">)</span></span>
 <span><span class="fu">tm_shape</span><span class="op">(</span><span class="va">my_segments</span><span class="op">)</span> <span class="op">+</span> <span class="fu">tm_lines</span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/map_segments-1.png"></p>
+<p><img src="reference/figures/map_segments-1.png"></p>
 </div>
 <div class="section level3">
 <h3 id="traffic-data">Traffic data<a class="anchor" aria-label="anchor" href="#traffic-data"></a>
@@ -188,17 +188,7 @@
 <p>If the <code>include_speed</code> is set as <code>TRUE</code>. The returned data frame will include the binned speed distribution for cars</p>
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb17"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="do">## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ dplyr     1.1.3     ✔ readr     2.1.4</span></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ forcats   1.0.0     ✔ stringr   1.5.0</span></span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1</span></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="do">## ✔ purrr     1.0.2     </span></span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="do">## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="do">## ✖ dplyr::filter() masks stats::filter()</span></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a><span class="do">## ✖ dplyr::lag()    masks stats::lag()</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="do">## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors</span></span></code></pre></div>
-<div class="sourceCode" id="cb18"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/read_Telraam_traffic.html">read_telraam_traffic</a></span><span class="op">(</span><span class="fl">9000003890</span>,</span>
 <span>  time_start <span class="op">=</span> <span class="st">"2023-03-25 07:00:00"</span>,</span>
 <span>  time_end <span class="op">=</span> <span class="st">"2023-04-25 07:00:00"</span>,</span>
@@ -206,76 +196,76 @@
 <span>  include_speed <span class="op">=</span> <span class="cn">TRUE</span></span>
 <span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/dim.html" class="external-link">dim</a></span><span class="op">(</span><span class="va">data</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb19"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 720  47</span></span></code></pre></div>
-<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb18"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## [1] 720  47</span></span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">select</span><span class="op">(</span><span class="va">segment_id</span>, <span class="va">date</span>, <span class="fu">starts_with</span><span class="op">(</span><span class="st">"car speed"</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/utils/str.html" class="external-link">str</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb21"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 'data.frame':    720 obs. of  27 variables:</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ segment_id          : num  9e+09 9e+09 9e+09 9e+09 9e+09 ...</span></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ date                : Date, format: "2023-03-25" "2023-03-25" ...</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [0,5)    : num  0.926 0.555 2.129 2.478 0.702 ...</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [5,10)   : num  0.451 1.109 0.318 2.102 0.535 ...</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [10,15)  : num  3.787 2.878 1.662 2.287 0.981 ...</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [15,20)  : num  2.772 1.286 0.963 2.065 0.798 ...</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [20,25)  : num  1.823 0.773 1.161 3.412 4.086 ...</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [25,30)  : num  2.3 2.44 4.96 7.36 10.97 ...</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [30,35)  : num  5.62 10.56 12.19 12.98 16.94 ...</span></span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [35,40)  : num  19.9 12.7 18.5 16.1 23.9 ...</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [40,45)  : num  18.1 19.1 18.3 18.1 18.3 ...</span></span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [45,50)  : num  17.9 14.5 14.2 11.4 11.3 ...</span></span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [50,55)  : num  11.38 11.86 8.51 6.31 5.34 ...</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [55,60)  : num  4.24 6.6 4.68 4.92 2.93 ...</span></span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [60,65)  : num  2.698 3.725 3.018 3.154 0.699 ...</span></span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [65,70)  : num  1.882 0.811 3.093 1.989 0.835 ...</span></span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [70,75)  : num  1.872 2.69 1.289 1.654 0.424 ...</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [75,80)  : num  2.871 1.844 1.491 0.487 0.275 ...</span></span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [80,85)  : num  0 0.553 0.818 0.3 0.142 ...</span></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [85,90)  : num  0 1.032 0.493 0.414 0.281 ...</span></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [90,95)  : num  0.535 1.697 0.508 0.828 0.142 ...</span></span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [95,100) : num  0 0.81 0.33 0.188 0.275 ...</span></span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [100,105): num  0.451 1.066 0.33 0 0 ...</span></span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [105,110): num  0 0.296 0.666 0 0.142 ...</span></span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [110,115): num  0 0 0.153 0.226 0 ...</span></span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [115,120): num  0 0 0.153 0.226 0 ...</span></span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  120+     : num  0.535 1.144 0.153 1.015 0 ...</span></span></code></pre></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">## 'data.frame':    720 obs. of  27 variables:</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ segment_id          : num  9e+09 9e+09 9e+09 9e+09 9e+09 ...</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ date                : Date, format: "2023-03-25" "2023-03-25" ...</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [0,5)    : num  0.926 0.555 2.129 2.478 0.702 ...</span></span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [5,10)   : num  0.451 1.109 0.318 2.102 0.535 ...</span></span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [10,15)  : num  3.787 2.878 1.662 2.287 0.981 ...</span></span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [15,20)  : num  2.772 1.286 0.963 2.065 0.798 ...</span></span>
+<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [20,25)  : num  1.823 0.773 1.161 3.412 4.086 ...</span></span>
+<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [25,30)  : num  2.3 2.44 4.96 7.36 10.97 ...</span></span>
+<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [30,35)  : num  5.62 10.56 12.19 12.98 16.94 ...</span></span>
+<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [35,40)  : num  19.9 12.7 18.5 16.1 23.9 ...</span></span>
+<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [40,45)  : num  18.1 19.1 18.3 18.1 18.3 ...</span></span>
+<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [45,50)  : num  17.9 14.5 14.2 11.4 11.3 ...</span></span>
+<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [50,55)  : num  11.38 11.86 8.51 6.31 5.34 ...</span></span>
+<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [55,60)  : num  4.24 6.6 4.68 4.92 2.93 ...</span></span>
+<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [60,65)  : num  2.698 3.725 3.018 3.154 0.699 ...</span></span>
+<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [65,70)  : num  1.882 0.811 3.093 1.989 0.835 ...</span></span>
+<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [70,75)  : num  1.872 2.69 1.289 1.654 0.424 ...</span></span>
+<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [75,80)  : num  2.871 1.844 1.491 0.487 0.275 ...</span></span>
+<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [80,85)  : num  0 0.553 0.818 0.3 0.142 ...</span></span>
+<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [85,90)  : num  0 1.032 0.493 0.414 0.281 ...</span></span>
+<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [90,95)  : num  0.535 1.697 0.508 0.828 0.142 ...</span></span>
+<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [95,100) : num  0 0.81 0.33 0.188 0.275 ...</span></span>
+<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [100,105): num  0.451 1.066 0.33 0 0 ...</span></span>
+<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [105,110): num  0 0.296 0.666 0 0.142 ...</span></span>
+<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [110,115): num  0 0 0.153 0.226 0 ...</span></span>
+<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  [115,120): num  0 0 0.153 0.226 0 ...</span></span>
+<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a><span class="do">##  $ car speed  120+     : num  0.535 1.144 0.153 1.015 0 ...</span></span></code></pre></div>
 <p>We can visualise the number of cars per day using the following code:</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">group_by</span><span class="op">(</span><span class="va">date</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">summarise</span><span class="op">(</span>cars <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/sum.html" class="external-link">sum</a></span><span class="op">(</span><span class="va">car</span><span class="op">)</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">ggplot</span><span class="op">(</span><span class="fu">aes</span><span class="op">(</span>x <span class="op">=</span> <span class="va">date</span>, y <span class="op">=</span> <span class="va">cars</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">geom_line</span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Date"</span>, y <span class="op">=</span> <span class="st">"Number of cars"</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb23"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Removed 1 row containing missing values (`geom_line()`).</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/cars_per_day-1.png"><!-- --></p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Warning: Removed 1 row containing missing values (`geom_line()`).</span></span></code></pre></div>
+<p><img src="reference/figures/cars_per_day-1.png"><!-- --></p>
 <div class="section level4">
 <h4 id="directional-flows">Directional flows<a class="anchor" aria-label="anchor" href="#directional-flows"></a>
 </h4>
 <p>Once the traffic data is available, the <code>tidy_directional</code> function can be used for formatting the traffic data:</p>
-<div class="sourceCode" id="cb24"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dir_data</span> <span class="op">&lt;-</span> <span class="va">data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="reference/tidy_directional.html">tidy_directional</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Linking to GEOS 3.11.2, GDAL 3.6.2, PROJ 9.2.0; sf_use_s2() is TRUE</span></span></code></pre></div>
-<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb24"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Linking to GEOS 3.11.2, GDAL 3.6.2, PROJ 9.2.0; sf_use_s2() is TRUE</span></span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dir_data</span></span></code></pre></div>
-<div class="sourceCode" id="cb27"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 5,760 × 10</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="do">##    segment_id uptime timezone      date       datetime              day    hr</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="do">##         &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;     &lt;dttm&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 9000003890  0.764 Europe/London 2023-03-25 2023-03-25 08:00:00     6     8</span></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 9000003890  0.764 Europe/London 2023-03-25 2023-03-25 08:00:00     6     8</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 5,750 more rows</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 3 more variables: road_dir &lt;chr&gt;, type &lt;chr&gt;, flow &lt;dbl&gt;</span></span></code></pre></div>
+<div class="sourceCode" id="cb26"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="do">## # A tibble: 5,760 × 10</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="do">##    segment_id uptime timezone      date       datetime              day    hr</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a><span class="do">##         &lt;dbl&gt;  &lt;dbl&gt; &lt;chr&gt;         &lt;date&gt;     &lt;dttm&gt;              &lt;dbl&gt; &lt;int&gt;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="do">##  1 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="do">##  2 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a><span class="do">##  3 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="do">##  4 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="do">##  5 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a><span class="do">##  6 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a><span class="do">##  7 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a><span class="do">##  8 9000003890  0.762 Europe/London 2023-03-25 2023-03-25 07:00:00     6     7</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a><span class="do">##  9 9000003890  0.764 Europe/London 2023-03-25 2023-03-25 08:00:00     6     8</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a><span class="do">## 10 9000003890  0.764 Europe/London 2023-03-25 2023-03-25 08:00:00     6     8</span></span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 5,750 more rows</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a><span class="do">## # ℹ 3 more variables: road_dir &lt;chr&gt;, type &lt;chr&gt;, flow &lt;dbl&gt;</span></span></code></pre></div>
 <p>The new formatted data eases visualisations or analysis by direction. For example, the following code shows the median car hourly-flow by direction:</p>
-<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">dir_data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://rdrr.io/r/stats/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">type</span> <span class="op">==</span> <span class="st">"car"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu">drop_na</span><span class="op">(</span><span class="va">date</span><span class="op">)</span> <span class="op">|&gt;</span></span>
@@ -289,7 +279,7 @@
 <span>  <span class="fu">facet_grid</span><span class="op">(</span><span class="va">.</span> <span class="op">~</span> <span class="va">road_dir</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">labs</span><span class="op">(</span>x <span class="op">=</span> <span class="st">"Hour"</span>, y <span class="op">=</span> <span class="st">"Cars per hour"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu">theme</span><span class="op">(</span>legend.position <span class="op">=</span> <span class="st">"none"</span><span class="op">)</span></span></code></pre></div>
-<p><img src="README_files/figure-gfm/directional_plot_car-1.png"><!-- --></p>
+<p><img src="reference/figures/directional_plot_car-1.png"><!-- --></p>
 </div>
 </div>
 </div>
