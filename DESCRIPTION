@@ -1,6 +1,6 @@
 Package: telraamR
 Type: Package
-Title: Interface for the telraam API
+Title: R Interface For The Telraam API
 Version: 0.1.2
 Authors@R: 
     c(
