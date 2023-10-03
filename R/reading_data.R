@@ -121,7 +121,7 @@ read_telraam_traffic <- function(id,
   }
 
   ## Check
-  mycols <- vapply(my_response$report[[1]], length) == 1
+  mycols <- vapply(my_response$report[[1]], FUN = length, numeric(1)) == 1
 
   # Speed data is not included
   omitcols <- c(names(mycols[!mycols]), "v85")

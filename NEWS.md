@@ -9,3 +9,7 @@
 # telraamR 0.1.1
 
 -   Fixed minor issue with 'tidy_directional'
+
+# telraamR 0.1.2
+
+-   Fixed issue with 'read_telraam_traffic'

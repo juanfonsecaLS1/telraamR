@@ -64,31 +64,31 @@ It is possible to obtain all camera instances registered on the server
 with the following code:
 
 ``` r
-cameras_summary = read_telraam_cameras()
+cameras_summary <- read_telraam_cameras()
 
 cameras_summary |> str()
 ```
 
-    ## tibble [7,875 × 19] (S3: tbl_df/tbl/data.frame)
-    ##  $ instance_id        : num [1:7875] 6711 6384 6451 6095 1388 ...
-    ##  $ mac                : num [1:7875] 2.02e+14 2.02e+14 2.02e+14 2.02e+14 2.02e+14 ...
-    ##  $ user_id            : num [1:7875] 6830 6869 3666 6550 2406 ...
-    ##  $ segment_id         : num [1:7875] 9e+09 9e+09 9e+09 9e+09 9e+09 ...
-    ##  $ direction          : logi [1:7875] TRUE TRUE FALSE TRUE TRUE TRUE ...
-    ##  $ status             : chr [1:7875] "active" "non_active" "non_active" "active" ...
-    ##  $ manual             : logi [1:7875] FALSE FALSE FALSE FALSE FALSE FALSE ...
-    ##  $ time_added         : POSIXct[1:7875], format: "2023-03-19 10:09:23" "2022-12-27 09:41:03" ...
-    ##  $ time_end           : POSIXct[1:7875], format: NA NA ...
-    ##  $ last_data_package  : POSIXct[1:7875], format: "2023-09-25 13:03:49" "2023-07-22 08:30:14" ...
-    ##  $ first_data_package : POSIXct[1:7875], format: "2023-04-06 12:30:52" "2022-12-27 09:41:45" ...
-    ##  $ pedestrians_left   : logi [1:7875] TRUE FALSE FALSE TRUE TRUE TRUE ...
-    ##  $ pedestrians_right  : logi [1:7875] TRUE TRUE TRUE FALSE TRUE TRUE ...
-    ##  $ bikes_left         : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ bikes_right        : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ cars_left          : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ cars_right         : logi [1:7875] TRUE TRUE TRUE TRUE TRUE TRUE ...
-    ##  $ is_calibration_done: chr [1:7875] "yes" "yes" "yes" "yes" ...
-    ##  $ hardware_version   : num [1:7875] 1 1 1 1 1 1 1 1 1 0 ...
+    ## tibble [7,936 × 19] (S3: tbl_df/tbl/data.frame)
+    ##  $ instance_id        : num [1:7936] 4976 3055 6453 5540 5077 ...
+    ##  $ mac                : num [1:7936] 2.02e+14 2.02e+14 2.02e+14 2.02e+14 2.02e+14 ...
+    ##  $ user_id            : num [1:7936] 1130 3181 6940 6008 5581 ...
+    ##  $ segment_id         : num [1:7936] 1e+09 9e+09 9e+09 9e+09 9e+09 ...
+    ##  $ direction          : logi [1:7936] FALSE TRUE FALSE TRUE TRUE FALSE ...
+    ##  $ status             : chr [1:7936] "stopped" "active" "active" "non_active" ...
+    ##  $ manual             : logi [1:7936] FALSE FALSE FALSE FALSE FALSE FALSE ...
+    ##  $ time_added         : POSIXct[1:7936], format: "2022-04-03 09:11:04" "2021-02-27 12:58:13" ...
+    ##  $ time_end           : POSIXct[1:7936], format: "2023-06-03 15:32:56" NA ...
+    ##  $ last_data_package  : POSIXct[1:7936], format: "2023-06-03 15:24:49" "2023-10-03 14:22:12" ...
+    ##  $ first_data_package : POSIXct[1:7936], format: "2022-04-03 09:28:05" "2021-03-01 10:00:00" ...
+    ##  $ pedestrians_left   : logi [1:7936] FALSE FALSE TRUE FALSE FALSE TRUE ...
+    ##  $ pedestrians_right  : logi [1:7936] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ bikes_left         : logi [1:7936] TRUE TRUE TRUE TRUE FALSE TRUE ...
+    ##  $ bikes_right        : logi [1:7936] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ cars_left          : logi [1:7936] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ cars_right         : logi [1:7936] TRUE TRUE TRUE TRUE TRUE TRUE ...
+    ##  $ is_calibration_done: chr [1:7936] "yes" "yes" "yes" "yes" ...
+    ##  $ hardware_version   : num [1:7936] 0 1 1 1 1 1 1 1 1 1 ...
 
 ### Segments Location
 
@@ -96,14 +96,14 @@ To obtain the location of the network links a.k.a. segments, the
 following function can be used:
 
 ``` r
-my_segments = read_telraam_segments()
+my_segments <- read_telraam_segments()
 
 my_segments |> str()
 ```
 
-    ## Classes 'sf' and 'data.frame':   6464 obs. of  2 variables:
+    ## Classes 'sf' and 'data.frame':   6515 obs. of  2 variables:
     ##  $ oidn    : num  9e+09 9e+09 9e+09 9e+09 9e+09 ...
-    ##  $ geometry:sfc_MULTILINESTRING of length 6464; first list element: List of 1
+    ##  $ geometry:sfc_MULTILINESTRING of length 6515; first list element: List of 1
     ##   ..$ : num [1:5, 1:2] 3.3 3.3 3.3 3.3 3.3 ...
     ##   ..- attr(*, "class")= chr [1:3] "XY" "MULTILINESTRING" "sfg"
     ##  - attr(*, "sf_column")= chr "geometry"
@@ -114,7 +114,7 @@ The following code would show the location of all segments using the
 ``` r
 library(tmap)
 tmap_mode("view")
-tm_shape(my_segments)+tm_lines()
+tm_shape(my_segments) + tm_lines()
 ```
 
 ![](README_files/figure-gfm/map_segments-1.png)
@@ -126,11 +126,12 @@ The hourly report for a single site can be obtained using the
 the use:
 
 ``` r
-data = read_telraam_traffic(9000003890,
-                            time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-25 07:00:00",
-                            report = "per-hour",
-                            include_speed = FALSE)
+data <- read_telraam_traffic(9000003890,
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-04-25 07:00:00",
+  report = "per-hour",
+  include_speed = FALSE
+)
 ```
 
 The function returns a data set with the hourly traffic by vehicle type
@@ -182,7 +183,7 @@ library(tidyverse)
     ## ✔ dplyr     1.1.3     ✔ readr     2.1.4
     ## ✔ forcats   1.0.0     ✔ stringr   1.5.0
     ## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-    ## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
+    ## ✔ lubridate 1.9.3     ✔ tidyr     1.3.0
     ## ✔ purrr     1.0.2     
     ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
     ## ✖ dplyr::filter() masks stats::filter()
@@ -190,11 +191,12 @@ library(tidyverse)
     ## ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
 
 ``` r
-data = read_telraam_traffic(9000003890,
-                            time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-25 07:00:00",
-                            report = "per-hour",
-                            include_speed = TRUE)
+data <- read_telraam_traffic(9000003890,
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-04-25 07:00:00",
+  report = "per-hour",
+  include_speed = TRUE
+)
 dim(data)
 ```
 
@@ -202,7 +204,7 @@ dim(data)
 
 ``` r
 data |>
-  select(segment_id,date, starts_with("car speed")) |>
+  select(segment_id, date, starts_with("car speed")) |>
   str()
 ```
 
@@ -238,12 +240,12 @@ data |>
 We can visualise the number of cars per day using the following code:
 
 ``` r
-data |> 
-  group_by(date) |> 
-  summarise(cars = sum(car)) |> 
-  ggplot(aes(x=date, y=cars)) + 
-  geom_line() + 
-  labs(x="Date", y="Number of cars")
+data |>
+  group_by(date) |>
+  summarise(cars = sum(car)) |>
+  ggplot(aes(x = date, y = cars)) +
+  geom_line() +
+  labs(x = "Date", y = "Number of cars")
 ```
 
     ## Warning: Removed 1 row containing missing values (`geom_line()`).
@@ -256,7 +258,7 @@ Once the traffic data is available, the `tidy_directional` function can
 be used for formatting the traffic data:
 
 ``` r
-dir_data = data |>
+dir_data <- data |>
   tidy_directional()
 ```
 
@@ -292,9 +294,11 @@ dir_data |>
   drop_na(date) |>
   ggplot(aes(x = hr, y = flow, col = road_dir)) +
   geom_line(aes(group = factor(date)), alpha = 0.2) +
-  stat_summary(fun = median,
-               geom = "line",
-               linewidth = 1) +
+  stat_summary(
+    fun = median,
+    geom = "line",
+    linewidth = 1
+  ) +
   facet_grid(. ~ road_dir) +
   labs(x = "Hour", y = "Cars per hour") +
   theme(legend.position = "none")
