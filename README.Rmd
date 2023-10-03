@@ -58,7 +58,7 @@ The authentication token can also be provided in the `mytoken` argument of funct
 It is possible to obtain all camera instances registered on the server with the following code:
 
 ```{r}
-cameras_summary = read_telraam_cameras()
+cameras_summary <- read_telraam_cameras()
 
 cameras_summary |> str()
 ```
@@ -68,7 +68,7 @@ cameras_summary |> str()
 To obtain the location of the network links a.k.a. segments, the following function can be used:
 
 ```{r}
-my_segments = read_telraam_segments()
+my_segments <- read_telraam_segments()
 
 my_segments |> str()
 ```
@@ -78,7 +78,7 @@ The following code would show the location of all segments using the `tmap` libr
 ```{r map_segments, echo=TRUE,dpi=72,message=FALSE,eval=FALSE}
 library(tmap)
 tmap_mode("view")
-tm_shape(my_segments)+tm_lines()
+tm_shape(my_segments) + tm_lines()
 ```
 
 ![](README_files/figure-gfm/map_segments-1.png)
@@ -88,11 +88,12 @@ tm_shape(my_segments)+tm_lines()
 The hourly report for a single site can be obtained using the `read_Telraam_traffic` function. The following code shows an example of the use:
 
 ```{r}
-data = read_telraam_traffic(9000003890,
-                            time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-25 07:00:00",
-                            report = "per-hour",
-                            include_speed = FALSE)
+data <- read_telraam_traffic(9000003890,
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-04-25 07:00:00",
+  report = "per-hour",
+  include_speed = FALSE
+)
 ```
 
 The function returns a data set with the hourly traffic by vehicle type and direction
@@ -110,26 +111,27 @@ library(tidyverse)
 ```
 
 ```{r}
-data = read_telraam_traffic(9000003890,
-                            time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-04-25 07:00:00",
-                            report = "per-hour",
-                            include_speed = TRUE)
+data <- read_telraam_traffic(9000003890,
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-04-25 07:00:00",
+  report = "per-hour",
+  include_speed = TRUE
+)
 dim(data)
 data |>
-  select(segment_id,date, starts_with("car speed")) |>
+  select(segment_id, date, starts_with("car speed")) |>
   str()
 ```
 
 We can visualise the number of cars per day using the following code:
 
 ```{r cars_per_day}
-data |> 
-  group_by(date) |> 
-  summarise(cars = sum(car)) |> 
-  ggplot(aes(x=date, y=cars)) + 
-  geom_line() + 
-  labs(x="Date", y="Number of cars")
+data |>
+  group_by(date) |>
+  summarise(cars = sum(car)) |>
+  ggplot(aes(x = date, y = cars)) +
+  geom_line() +
+  labs(x = "Date", y = "Number of cars")
 ```
 
 #### Directional flows
@@ -137,7 +139,7 @@ data |>
 Once the traffic data is available, the `tidy_directional` function can be used for formatting the traffic data:
 
 ```{r}
-dir_data = data |>
+dir_data <- data |>
   tidy_directional()
 dir_data
 ```
@@ -150,9 +152,11 @@ dir_data |>
   drop_na(date) |>
   ggplot(aes(x = hr, y = flow, col = road_dir)) +
   geom_line(aes(group = factor(date)), alpha = 0.2) +
-  stat_summary(fun = median,
-               geom = "line",
-               linewidth = 1) +
+  stat_summary(
+    fun = median,
+    geom = "line",
+    linewidth = 1
+  ) +
   facet_grid(. ~ road_dir) +
   labs(x = "Hour", y = "Cars per hour") +
   theme(legend.position = "none")

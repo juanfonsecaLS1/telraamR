@@ -11,24 +11,24 @@
 #'
 #' @examples
 #' \dontrun{
-#' anysegment = my_segments |>
-#'                 filter(oidn == 9000003890)
+#' anysegment <- my_segments |>
+#'   filter(oidn == 9000003890)
 #'
 #' get_cardinal_dirs(anysegment)
 #' }
-get_cardinal_dirs = function(mysegments) {
-  bearings = line_bearing(mysegments)
+get_cardinal_dirs <- function(mysegments) {
+  bearings <- line_bearing(mysegments)
 
   # Ensuring values are between 0 and 360
-  bearings[bearings < 0] = bearings[bearings < 0] + 360
-  bearings[bearings > 360] = bearings[bearings > 360] - 360
+  bearings[bearings < 0] <- bearings[bearings < 0] + 360
+  bearings[bearings > 360] <- bearings[bearings > 360] - 360
 
   # Calculating opposite
-  bearings_op = bearings + 180
-  bearings_op[bearings_op > 360] = bearings_op[bearings_op > 360] - 360
+  bearings_op <- bearings + 180
+  bearings_op[bearings_op > 360] <- bearings_op[bearings_op > 360] - 360
 
-  breaks = seq(-22.5, 360 + 22.5, by = 45)
-  labels = c(
+  breaks <- seq(-22.5, 360 + 22.5, by = 45)
+  labels <- c(
     "Northbound",
     "Northeastbound",
     "Eastbound",
@@ -39,7 +39,7 @@ get_cardinal_dirs = function(mysegments) {
     "Northwestbound",
     "Northbound"
   )
-  df_directions = data.frame(
+  df_directions <- data.frame(
     lft = cut(
       bearings,
       breaks,
@@ -58,12 +58,11 @@ get_cardinal_dirs = function(mysegments) {
 
 
 
-  result = mysegments |>
+  result <- mysegments |>
     st_drop_geometry() |>
     cbind(df_directions)
 
   return(result)
-
 }
 
 #' Directional traffic data in a tidy format
@@ -82,21 +81,21 @@ get_cardinal_dirs = function(mysegments) {
 #' @examples
 #' \dontrun{
 #'
-#' data = read_telraam_traffic(9000003890,
-#'                             time_start = "2023-03-25 07:00:00",
-#'                             time_end = "2023-03-30 07:00:00")
+#' data <- read_telraam_traffic(9000003890,
+#'   time_start = "2023-03-25 07:00:00",
+#'   time_end = "2023-03-30 07:00:00"
+#' )
 #'
 #' tidy_directional(data)
 #' }
 #'
-#'
-tidy_directional = function(data) {
-  oids = unique(data$segment_id)
+tidy_directional <- function(data) {
+  oids <- unique(data$segment_id)
 
-  all_segments = read_telraam_segments()
-  sel_segments = all_segments[all_segments$oidn %in% oids,]
+  all_segments <- read_telraam_segments()
+  sel_segments <- all_segments[all_segments$oidn %in% oids, ]
 
-  lfrg2card = get_cardinal_dirs(sel_segments) |>
+  lfrg2card <- get_cardinal_dirs(sel_segments) |>
     pivot_longer(
       cols = -all_of("oidn"),
       names_to = "view_direction",
@@ -105,7 +104,7 @@ tidy_directional = function(data) {
     mutate(road_dir = as.character(.data$road_dir))
 
 
-  sel_cols =  c(
+  sel_cols <- c(
     "instance_id",
     "direction",
     "interval",
@@ -116,14 +115,15 @@ tidy_directional = function(data) {
     names(data)[grepl("speed", names(data))]
   )
 
-  dir_data = data [, !(names(data) %in% sel_cols)]
+  dir_data <- data[, !(names(data) %in% sel_cols)]
 
-  dir_cols = names(dir_data)[grepl(pattern = "(lft|rgt)", names(dir_data))]
+  dir_cols <- names(dir_data)[grepl(pattern = "(lft|rgt)", names(dir_data))]
 
-  long_dir = dir_data |>
-    pivot_longer(#names_pattern = ".*\\_(lft|rgt)",
+  long_dir <- dir_data |>
+    pivot_longer( # names_pattern = ".*\\_(lft|rgt)",
       cols = all_of(dir_cols),
-      values_to = "flow") |>
+      values_to = "flow"
+    ) |>
     mutate(
       view_direction = str_extract(string = .data$name, pattern = "(lft|rgt)"),
       type = str_extract(string = .data$name, pattern = "(heavy|car|bike|pedestrian)")
@@ -146,5 +146,3 @@ tidy_directional = function(data) {
 
   return(long_dir)
 }
-
-
