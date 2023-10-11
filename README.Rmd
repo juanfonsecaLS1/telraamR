@@ -75,11 +75,13 @@ my_segments |> str()
 
 The following code would show the location of all segments using the `tmap` library.
 
-```{r map_segments}
-#| warning: false
+```{r map_segments,eval=FALSE}
 library(tmap)
 tmap_mode("view")
 tm_shape(my_segments) + tm_lines()
+```
+```{r}
+knitr::include_graphics(path = "man/figures/map_segments-1.png")
 ```
 
 
