@@ -1,39 +1,15 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/404.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/index.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/get_cardinal_dirs.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/index.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/read_Telraam_traffic.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/read_telraam_cameras.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/read_telraam_segments.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/set_Telraam_Token.html</loc>
-  </url>
-  <url>
-    <loc>https://juanfonsecals1.github.io/telraamR/reference/tidy_directional.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://juanfonsecals1.github.io/telraamR/404.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/LICENSE.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/authors.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/index.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/news/index.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/get_cardinal_dirs.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/index.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/read_Telraam_traffic.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/read_telraam_cameras.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/read_telraam_segments.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/set_Telraam_Token.html</loc></url>
+<url><loc>https://juanfonsecals1.github.io/telraamR/reference/tidy_directional.html</loc></url>
 </urlset>
+
