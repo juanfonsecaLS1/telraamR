@@ -3,7 +3,7 @@
 #' Function as an interface for the traffic API call
 #'
 #' @param id the segment (or instance) identifier in question (can be found in the address of the segment from the Telraam website)
-#' @param report one of "per-hour" or "per-quarter", if "per-quarter" is selected, an Advanced API token should be provided resulting in hourly aggregated traffic
+#' @param report one of "per-hour" or "per-quarter", if "per-quarter" is selected, an Advanced API token should be provided resulting in 15-minute aggregated traffic
 #' @param time_start The beginning of the requested time interval
 #' @param time_end The end of the requested time interval (note: the time interval is closed-open, so the end time is not included anymore in the request
 #' @param mytoken the authentication token, if not previously set with `usethis::edit_r_environ()` or the \code{set_telraamToken} function
