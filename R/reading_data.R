@@ -57,9 +57,9 @@ read_telraam_traffic <- function(id,
 
   if (report == "per-quarter") {
     warning("per-quarter data requires a token for the advance API! \n the request might fail if you do not provide one")
-    base_url = "https://telraam-api.net/advanced/reports/traffic"
+    base_url <- "https://telraam-api.net/advanced/reports/traffic"
   } else {
-    base_url = "https://telraam-api.net/v1/reports/traffic"
+    base_url <- "https://telraam-api.net/v1/reports/traffic"
   }
 
   tz <- match.arg(tz, choices = OlsonNames())
