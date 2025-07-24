@@ -64,7 +64,7 @@ read_telraam_traffic <- function(id,
 
   tz <- match.arg(tz, choices = OlsonNames())
 
-  checked_times <- check_time_args(time_start,time_end,tz)
+  checked_times <- check_time_args(time_start, time_end, tz)
 
   time_start <- paste0(checked_times[[1]],"Z")
   time_end <- paste0(checked_times[[2]],"Z")
