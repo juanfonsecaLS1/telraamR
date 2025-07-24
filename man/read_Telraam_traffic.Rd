@@ -6,7 +6,7 @@
 \usage{
 read_telraam_traffic(
   id,
-  report = c("per-hour"),
+  report = c("per-hour", "per-quarter"),
   time_start,
   time_end,
   tz = Sys.timezone(),
@@ -17,7 +17,7 @@ read_telraam_traffic(
 \arguments{
 \item{id}{the segment (or instance) identifier in question (can be found in the address of the segment from the Telraam website)}
 
-\item{report}{can only be "per-hour", resulting in hourly aggregated traffic}
+\item{report}{one of "per-hour" or "per-quarter", if "per-quarter" is selected, an Advanced API token should be provided resulting in hourly aggregated traffic}
 
 \item{time_start}{The beginning of the requested time interval}
 
@@ -38,30 +38,28 @@ data.frame with traffic data
 Function as an interface for the traffic API call
 }
 \examples{
-
-
-
-
 \dontrun{
 # Setting up the PAT Method 1 (Recommended):
 # 1. Run the following line
 usethis::edit_r_environ()
 
 # 2. Add the following line:
-    telraam = "your token goes here"
+telraam <- "your token goes here"
 # 3. Restart your R session
 
 # Setting up the PAT Method 2:
-my_token = readLines(con = "mytoken.txt",warn = FALSE)
+my_token <- readLines(con = "mytoken.txt", warn = FALSE)
 
 # Using the function
 read_telraam_traffic(9000003890,
-                     time_start = "2023-03-25 07:00:00",
-                     time_end = "2023-03-30 07:00:00")
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-03-30 07:00:00"
+)
 
 read_telraam_traffic(9000003890,
-                     time_start = "2023-03-25 07:00:00",
-                     time_end = "2023-03-30 07:00:00",
-                     include_speed = TRUE)
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-03-30 07:00:00",
+  include_speed = TRUE
+)
 }
 }

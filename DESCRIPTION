@@ -13,11 +13,12 @@ Description: A package to wrap the common calls of the telraam API.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.2
 Imports: 
     dplyr (>= 1.1.1),
     geojsonsf (>= 2.0.3),
     httr (>= 1.4.5),
+    httr2,
     lubridate (>= 1.9.2),
     rjson (>= 0.2.21),
     rlang (>= 1.1.1),
