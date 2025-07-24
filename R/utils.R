@@ -16,7 +16,7 @@ check_time_args <- function(time_start,
   }
 
   if (time_end > Sys.time()) {
-    warning("End time is in the future. End time constained to current system time")
+    warning("End time is in the future. End time constrained to current system time")
     time_end <- Sys.time()
   }
 
