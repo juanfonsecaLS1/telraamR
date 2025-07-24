@@ -91,7 +91,7 @@ read_telraam_traffic <- function(id,
   # checking the response status
   status <- resp |> httr2::resp_status()
 
-  if ( status != 200)  {
+  if (status != 200) {
     stop("Response returned a non ok message")
   }
 
