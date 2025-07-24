@@ -12,7 +12,7 @@ check_time_args <- function(time_start,
   }
 
   if (is.na(time_end)) {
-    stop("Start date is not in the correct format i.e. YYYY-MM-DD H:M:S")
+    stop("End date is not in the correct format i.e. YYYY-MM-DD H:M:S")
   }
 
   if (time_end > Sys.time()) {
