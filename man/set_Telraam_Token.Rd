@@ -17,7 +17,7 @@ Saves an Authentication Token for the telraam API
 }
 \examples{
 
-mytoken = "ivRgw7ZAGFedfwIdASezecdnETZDsdETB4Bqv3pbs5X8JDNnt1pQtpxDmpR6as2k"
+mytoken <- "ivRgw7ZAGFedfwIdASezecdnETZDsdETB4Bqv3pbs5X8JDNnt1pQtpxDmpR6as2k"
 set_telraam_token(mytoken)
 
 }

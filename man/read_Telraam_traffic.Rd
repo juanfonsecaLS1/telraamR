@@ -38,30 +38,28 @@ data.frame with traffic data
 Function as an interface for the traffic API call
 }
 \examples{
-
-
-
-
 \dontrun{
 # Setting up the PAT Method 1 (Recommended):
 # 1. Run the following line
 usethis::edit_r_environ()
 
 # 2. Add the following line:
-    telraam = "your token goes here"
+telraam <- "your token goes here"
 # 3. Restart your R session
 
 # Setting up the PAT Method 2:
-my_token = readLines(con = "mytoken.txt",warn = FALSE)
+my_token <- readLines(con = "mytoken.txt", warn = FALSE)
 
 # Using the function
 read_telraam_traffic(9000003890,
-                     time_start = "2023-03-25 07:00:00",
-                     time_end = "2023-03-30 07:00:00")
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-03-30 07:00:00"
+)
 
 read_telraam_traffic(9000003890,
-                     time_start = "2023-03-25 07:00:00",
-                     time_end = "2023-03-30 07:00:00",
-                     include_speed = TRUE)
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-03-30 07:00:00",
+  include_speed = TRUE
+)
 }
 }

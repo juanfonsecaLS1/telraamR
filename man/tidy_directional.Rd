@@ -18,12 +18,12 @@ Directional traffic data in a tidy format
 \examples{
 \dontrun{
 
-data = read_telraam_traffic(9000003890,
-                            time_start = "2023-03-25 07:00:00",
-                            time_end = "2023-03-30 07:00:00")
+data <- read_telraam_traffic(9000003890,
+  time_start = "2023-03-25 07:00:00",
+  time_end = "2023-03-30 07:00:00"
+)
 
 tidy_directional(data)
 }
-
 
 }

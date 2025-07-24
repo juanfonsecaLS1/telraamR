@@ -18,7 +18,6 @@ a data frame with the data for all cameras in telraam
 Read all cameras
 }
 \examples{
-
 \dontrun{
 read_telraam_cameras()
 }

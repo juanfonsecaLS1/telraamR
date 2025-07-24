@@ -18,8 +18,8 @@ Get the cardinal directions for the segments
 }
 \examples{
 \dontrun{
-anysegment = my_segments |>
-                filter(oidn == 9000003890)
+anysegment <- my_segments |>
+  filter(oidn == 9000003890)
 
 get_cardinal_dirs(anysegment)
 }
