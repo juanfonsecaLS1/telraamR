@@ -32,5 +32,5 @@ check_time_args <- function(time_start,
     warning("Interval is longer than 3 months, end date was set to 90 days after the start date")
     time_end <- time_start + as.difftime(90, "days")
   }
-  return(list(time_start,time_end))
+  return(list(time_start, time_end))
 }
