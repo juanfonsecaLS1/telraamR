@@ -8,11 +8,11 @@ check_time_args <- function(time_start,
 
   # Dates check
   if (is.na(time_start)) {
-    stop("Stard date is not in the correct format i.e. YYYY-MM-DD H:M:S")
+    stop("Start date is not in the correct format i.e. YYYY-MM-DD H:M:S")
   }
 
   if (is.na(time_end)) {
-    stop("Stard date is not in the correct format i.e. YYYY-MM-DD H:M:S")
+    stop("Start date is not in the correct format i.e. YYYY-MM-DD H:M:S")
   }
 
   if (time_end > Sys.time()) {
