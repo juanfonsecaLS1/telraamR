@@ -6,6 +6,7 @@
 \usage{
 read_telraam_traffic(
   id,
+  level = c("segments", "instances"),
   report = c("per-hour", "per-quarter"),
   time_start,
   time_end,
@@ -17,7 +18,9 @@ read_telraam_traffic(
 \arguments{
 \item{id}{the segment (or instance) identifier in question (can be found in the address of the segment from the Telraam website)}
 
-\item{report}{one of "per-hour" or "per-quarter", if "per-quarter" is selected, an Advanced API token should be provided resulting in hourly aggregated traffic}
+\item{level}{one of "segments" or "instances". by default "segments".}
+
+\item{report}{one of "per-hour" or "per-quarter", if "per-quarter" is selected, an Advanced API token should be provided resulting in 15-minute aggregated traffic}
 
 \item{time_start}{The beginning of the requested time interval}
 
@@ -60,6 +63,13 @@ read_telraam_traffic(9000003890,
   time_start = "2023-03-25 07:00:00",
   time_end = "2023-03-30 07:00:00",
   include_speed = TRUE
+)
+
+read_telraam_traffic(12031,
+  time_start = "2025-07-20 00:00:00",
+  time_end = "2025-07-28 00:00:00",
+  level = "instances",
+  report = "per-quarter"
 )
 }
 }
