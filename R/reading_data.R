@@ -12,6 +12,7 @@
 #'   for the datetime when the clocks change.
 #'
 #' @param include_speed logical, if car speed distribution included in the final data, \code{FALSE} as default
+#' @param level one of "segments" or "instances". by default "segments".
 #'
 #' @importFrom lubridate ymd_hms hour wday `tz<-`
 #'
@@ -44,8 +45,16 @@
 #'   time_end = "2023-03-30 07:00:00",
 #'   include_speed = TRUE
 #' )
+#'
+#' read_telraam_traffic(12031,
+#'   time_start = "2025-07-20 00:00:00",
+#'   time_end = "2025-07-28 00:00:00",
+#'   level = "instances",
+#'   report = "per-quarter"
+#' )
 #' }
 read_telraam_traffic <- function(id,
+                                 level = c("segments","instances"),
                                  report = c("per-hour","per-quarter"),
                                  time_start,
                                  time_end,
@@ -54,6 +63,7 @@ read_telraam_traffic <- function(id,
                                  include_speed = FALSE) {
   # Arguments check
   report <- match.arg(report)
+  level <- match.arg(level)
 
   if (report == "per-quarter") {
     warning("per-quarter data requires a token for the advance API! \n the request might fail if you do not provide one")
@@ -66,8 +76,8 @@ read_telraam_traffic <- function(id,
 
   checked_times <- check_time_args(time_start, time_end, tz)
 
-  time_start <- paste0(checked_times[[1]],"Z")
-  time_end <- paste0(checked_times[[2]],"Z")
+  time_start <- paste0(format(checked_times[[1]], "%Y-%m-%d %H:%M:%S"),"Z")
+  time_end <- paste0(format(checked_times[[2]], "%Y-%m-%d %H:%M:%S"),"Z")
 
   # Building the request
 
@@ -75,7 +85,7 @@ read_telraam_traffic <- function(id,
     httr2::req_headers_redacted(`X-Api-Key` = mytoken) |>
     httr2::req_body_json(
       list(
-        level = "segments",
+        level = level,
         format = report,
         id = id,
         time_start = time_start,
@@ -97,8 +107,6 @@ read_telraam_traffic <- function(id,
 
   # Extracting the body of the request
   my_response <- resp |> httr2::resp_body_json()
-
-
 
   ## Check
   mycols <- vapply(my_response$report[[1]], FUN = length, numeric(1)) == 1

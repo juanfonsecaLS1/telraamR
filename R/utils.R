@@ -3,8 +3,10 @@ check_time_args <- function(time_start,
                             tz
 ){
 
-  time_start <- ymd_hms(time_start, tz = tz)
-  time_end <- ymd_hms(time_end, tz = tz)
+  time_start <- lubridate::ymd_hms(time_start, tz = tz)
+  time_end <- lubridate::ymd_hms(time_end, tz = tz)
+
+
 
   # Dates check
   if (is.na(time_start)) {
@@ -32,5 +34,6 @@ check_time_args <- function(time_start,
     warning("Interval is longer than 3 months, end date was set to 90 days after the start date")
     time_end <- time_start + as.difftime(90, "days")
   }
+
   return(list(time_start, time_end))
 }
