@@ -1,28 +1,22 @@
-#' Obtain the telraam segments as a sf object
-#'
-#' @inheritParams read_telraam_traffic
-#' @param usecache `logical` used to store the API response in the cache of the package, `TRUE` as default
-#'
-#' @return a sf object with all segments with the id
-#' @export
-#'
-#' @importFrom httr VERB
-#' @importFrom httr add_headers
-#' @importFrom httr content
-#' @importFrom geojsonsf geojson_sf
-#' @importFrom sf `st_crs<-`
-#' @importFrom sf st_transform
-#'
-#'
-#'
-#' @examples
-#' \dontrun{
-#' read_telraam_segments()
-#' }
-#'
+  #' Obtain Telraam segments as an sf object
+  #'
+  #' @description
+  #' Retrieves all Telraam segments as a spatial (sf) object, optionally using cached API responses.
+  #'
+  #' @param mytoken Character string. Telraam API authentication token. If not set, uses value from environment.
+  #' @param usecache Logical. If TRUE, uses cached API response if available (default: TRUE).
+  #'
+  #' @return An sf object containing all Telraam segments with their IDs and geometry.
+  #' @export
+  #'
+  #'
+  #' @examples
+  #' \dontrun{
+  #' read_telraam_segments()
+  #' }
 read_telraam_segments <- function(mytoken = get_telraam_token(),
                                   usecache = T) {
-  if (exists("telraamsegments", envir = cacheEnv) &
+  if (exists("telraamsegments", envir = cacheEnv) &&
     usecache) {
     return(get("telraamsegments", envir = cacheEnv))
   }
@@ -31,10 +25,10 @@ read_telraam_segments <- function(mytoken = get_telraam_token(),
   headers <- c("X-Api-Key" = mytoken)
 
   res <-
-    VERB("GET", url = "https://telraam-api.net/v1/segments/all", add_headers(headers))
+    httr::VERB("GET", url = "https://telraam-api.net/v1/segments/all", httr::add_headers(headers))
 
-  my_response <- geojson_sf(
-    content(res,
+  my_response <- geojsonsf::geojson_sf(
+    httr::content(res,
       "text",
       encoding = "UTF-8"
     ),
@@ -44,9 +38,9 @@ read_telraam_segments <- function(mytoken = get_telraam_token(),
 
   # this is to suppress the warning produced by the use of the st_crs<- function
   # Warning: st_crs<- : replacing crs does not reproject data; use st_transform for that
-  suppressWarnings(st_crs(my_response) <- "EPSG:31370")
+  suppressWarnings(sf::st_crs(my_response) <- "EPSG:31370")
 
-  my_segments <- st_transform(my_response, crs = 4326)
+  my_segments <- sf::st_transform(my_response, crs = 4326)
 
   assign("telraamsegments", my_segments, envir = cacheEnv)
 

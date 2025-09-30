@@ -2,20 +2,20 @@
 % Please edit documentation in R/cameras.R
 \name{read_telraam_cameras}
 \alias{read_telraam_cameras}
-\title{Read all cameras}
+\title{Read all Telraam cameras}
 \usage{
 read_telraam_cameras(mytoken = get_telraam_token(), usecache = T)
 }
 \arguments{
-\item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_telraamToken} function}
+\item{mytoken}{Character string. Telraam API authentication token. If not set, uses value from environment.}
 
-\item{usecache}{\code{logical} used to store the API response in the cache of the package, \code{TRUE} as default}
+\item{usecache}{Logical. If TRUE, uses cached API response if available (default: TRUE).}
 }
 \value{
-a data frame with the data for all cameras in telraam
+Data frame containing all Telraam cameras and their metadata.
 }
 \description{
-Read all cameras
+Retrieves all camera data from the Telraam API, optionally using cached responses.
 }
 \examples{
 \dontrun{

@@ -1,58 +1,38 @@
-#' Get hourly traffic report
-#'
-#' Function as an interface for the traffic API call
-#'
-#' @param id the segment (or instance) identifier in question (can be found in the address of the segment from the Telraam website)
-#' @param report one of "per-hour" or "per-quarter", if "per-quarter" is selected, an Advanced API token should be provided resulting in 15-minute aggregated traffic
-#' @param time_start The beginning of the requested time interval
-#' @param time_end The end of the requested time interval (note: the time interval is closed-open, so the end time is not included anymore in the request
-#' @param mytoken the authentication token, if not previously set with `usethis::edit_r_environ()` or the \code{set_telraamToken} function
-#' @param tz timezone, by default the value from `Sys.timezone()` in your machine.
-#'   If the provided time zone is affected by daylight saving time, the conversion of the time might result in `NA` values
-#'   for the datetime when the clocks change.
-#'
-#' @param include_speed logical, if car speed distribution included in the final data, \code{FALSE} as default
-#' @param level one of "segments" or "instances". by default "segments".
-#'
-#' @importFrom lubridate ymd_hms hour wday `tz<-`
-#'
-#'
-#'
-#' @return data.frame with traffic data
-#' @export
-#'
-#' @examples
-#' \dontrun{
-#' # Setting up the PAT Method 1 (Recommended):
-#' # 1. Run the following line
-#' usethis::edit_r_environ()
-#'
-#' # 2. Add the following line:
-#' telraam <- "your token goes here"
-#' # 3. Restart your R session
-#'
-#' # Setting up the PAT Method 2:
-#' my_token <- readLines(con = "mytoken.txt", warn = FALSE)
-#'
-#' # Using the function
-#' read_telraam_traffic(9000003890,
-#'   time_start = "2023-03-25 07:00:00",
-#'   time_end = "2023-03-30 07:00:00"
-#' )
-#'
-#' read_telraam_traffic(9000003890,
-#'   time_start = "2023-03-25 07:00:00",
-#'   time_end = "2023-03-30 07:00:00",
-#'   include_speed = TRUE
-#' )
-#'
-#' read_telraam_traffic(12031,
-#'   time_start = "2025-07-20 00:00:00",
-#'   time_end = "2025-07-28 00:00:00",
-#'   level = "instances",
-#'   report = "per-quarter"
-#' )
-#' }
+  #' Get hourly or quarter-hourly traffic report from Telraam API
+  #'
+  #' @description
+  #' Interface to the Telraam traffic API, retrieving traffic data for a specified segment or instance and time interval.
+  #'
+  #' @param id Integer. Segment or instance identifier (see Telraam website for details).
+  #' @param report Character. Either "per-hour" or "per-quarter". "per-quarter" requires an Advanced API token and returns 15-minute aggregated data.
+  #' @param time_start Character string. Start date-time in format "YYYY-MM-DD HH:MM:SS".
+  #' @param time_end Character string. End date-time in format "YYYY-MM-DD HH:MM:SS" (exclusive).
+  #' @param mytoken Character string. Authentication token. If not set, uses value from environment.
+  #' @param tz Character string. Timezone name (default: value from `Sys.timezone()`).
+  #' @param include_speed Logical. If TRUE, includes car speed distribution in the returned data (default: FALSE).
+  #' @param level Character. Either "segments" or "instances" (default: "segments").
+  #'
+  #'
+  #' @return Data frame with traffic data for the specified segment/instance and time interval.
+  #' @export
+  #'
+  #' @examples
+  #' \dontrun{
+  #' # Set up the token (see set_telraam_token)
+  #' mytoken <- "your_token_here"
+  #' read_telraam_traffic(9000003890,
+  #'                      time_start = "2023-03-25 07:00:00",
+  #'                      time_end = "2023-03-30 07:00:00")
+  #' read_telraam_traffic(9000003890,
+  #'                      time_start = "2023-03-25 07:00:00",
+  #'                      time_end = "2023-03-30 07:00:00",
+  #'                      include_speed = TRUE)
+  #' read_telraam_traffic(12031,
+  #'                      time_start = "2025-07-20 00:00:00",
+  #'                      time_end = "2025-07-28 00:00:00",
+  #'                      level = "instances",
+  #'                      report = "per-quarter")
+  #' }
 read_telraam_traffic <- function(id,
                                  level = c("segments","instances"),
                                  report = c("per-hour","per-quarter"),
@@ -137,18 +117,20 @@ read_telraam_traffic <- function(id,
       }
     )
 
-    mydata_speed <- do.call(rbind, my_speed)
+    mydata_speed <- do.call(rbind, lapply(my_speed,unlist))
+
+
     mydata <- cbind(mydata, mydata_speed)
   }
 
   ## Adds columns for date, day of the week and hour
-  mydata$datetime <- ymd_hms(mydata$date)
-  tz(mydata$datetime) <- tz
+  mydata$datetime <- lubridate::ymd_hms(mydata$date)
+  lubridate::tz(mydata$datetime) <- tz
   mydata$timezone <- tz
 
   mydata$date <- as.Date(mydata$datetime)
-  mydata$day <- wday(mydata$datetime, week_start = 1)
-  mydata$hr <- hour(mydata$datetime)
+  mydata$day <- lubridate::wday(mydata$datetime, week_start = 1)
+  mydata$hr <- lubridate::hour(mydata$datetime)
 
   return(mydata)
 }

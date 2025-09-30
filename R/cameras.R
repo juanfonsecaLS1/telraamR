@@ -1,30 +1,24 @@
-#' Read all cameras
-#'
-#' @inheritParams read_telraam_traffic
-#' @param usecache `logical` used to store the API response in the cache of the package, `TRUE` as default
-#'
-#' @return a data frame with the data for all cameras in telraam
-#' @export
-#'
-#' @importFrom httr VERB
-#' @importFrom httr add_headers
-#' @importFrom httr content
-#' @importFrom tidyr unnest
-#' @importFrom dplyr across
-#' @importFrom dplyr everything
-#' @importFrom dplyr mutate
-#' @importFrom dplyr starts_with
-#' @importFrom dplyr ends_with
-#'
-#' @examples
-#' \dontrun{
-#' read_telraam_cameras()
-#' }
+  #' Read all Telraam cameras
+  #'
+  #' @description
+  #' Retrieves all camera data from the Telraam API, optionally using cached responses.
+  #'
+  #' @param mytoken Character string. Telraam API authentication token. If not set, uses value from environment.
+  #' @param usecache Logical. If TRUE, uses cached API response if available (default: TRUE).
+  #'
+  #' @return Data frame containing all Telraam cameras and their metadata.
+  #' @export
+  #'
+  #'
+  #' @examples
+  #' \dontrun{
+  #' read_telraam_cameras()
+  #' }
 read_telraam_cameras <- function(mytoken = get_telraam_token(),
                                  usecache = T) {
   if (exists("telraamcameras",
     envir = cacheEnv
-  ) & usecache) {
+  ) && usecache) {
     return(get("telraamcameras",
       envir = cacheEnv
     ))
@@ -34,12 +28,13 @@ read_telraam_cameras <- function(mytoken = get_telraam_token(),
   # Call preparation
   headers <- c("X-Api-Key" = mytoken)
 
-  res <- VERB("GET",
+  res <- httr::VERB("GET",
     url = "https://telraam-api.net/v1/cameras",
-    add_headers(headers)
+    httr::add_headers(headers)
   )
 
-  my_response <- fromJSON(content(res,
+  my_response <- rjson::fromJSON(
+    httr::content(res,
     "text",
     encoding = "UTF-8"
   ))
@@ -57,10 +52,10 @@ read_telraam_cameras <- function(mytoken = get_telraam_token(),
     )
   ))
   my_cameras_df <- my_cameras |>
-    unnest(cols = everything()) |>
-    mutate(
-      across(starts_with("time"), ymd_hms),
-      across(ends_with("data_package"), ymd_hms)
+    tidyr::unnest(cols = dplyr::everything()) |>
+    dplyr::mutate(
+      dplyr::across(dplyr::starts_with("time"), lubridate::ymd_hms),
+      dplyr::across(dplyr::ends_with("data_package"), lubridate::ymd_hms)
     )
 
   assign("telraamcameras", my_cameras_df, envir = cacheEnv)

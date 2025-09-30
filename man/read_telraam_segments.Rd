@@ -2,24 +2,21 @@
 % Please edit documentation in R/segments.R
 \name{read_telraam_segments}
 \alias{read_telraam_segments}
-\title{Obtain the telraam segments as a sf object}
+\title{Obtain Telraam segments as an sf object}
 \usage{
 read_telraam_segments(mytoken = get_telraam_token(), usecache = T)
 }
 \arguments{
-\item{mytoken}{the authentication token, if not previously set with \code{usethis::edit_r_environ()} or the \code{set_telraamToken} function}
+\item{mytoken}{Character string. Telraam API authentication token. If not set, uses value from environment.}
 
-\item{usecache}{\code{logical} used to store the API response in the cache of the package, \code{TRUE} as default}
+\item{usecache}{Logical. If TRUE, uses cached API response if available (default: TRUE).}
 }
 \value{
-a sf object with all segments with the id
+An sf object containing all Telraam segments with their IDs and geometry.
 }
 \description{
-Obtain the telraam segments as a sf object
+Retrieves all Telraam segments as a spatial (sf) object, optionally using cached API responses.
 }
 \examples{
-\dontrun{
 read_telraam_segments()
-}
-
 }

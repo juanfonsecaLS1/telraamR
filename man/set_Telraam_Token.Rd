@@ -2,22 +2,22 @@
 % Please edit documentation in R/auth.R
 \name{set_telraam_token}
 \alias{set_telraam_token}
-\title{Saves an Authentication Token for the telraam API}
+\title{Set the Telraam API authentication token}
 \usage{
 set_telraam_token(token)
 }
 \arguments{
-\item{token}{a \code{string} with the token}
+\item{token}{Character string. The Telraam API token to be saved.}
 }
 \value{
-TRUE if token correctly set
+Logical TRUE if the token is correctly set, otherwise an error is thrown.
 }
 \description{
-Saves an Authentication Token for the telraam API
+Stores the provided authentication token in the environment for use with Telraam API requests.
 }
 \examples{
-
 mytoken <- "ivRgw7ZAGFedfwIdASezecdnETZDsdETB4Bqv3pbs5X8JDNnt1pQtpxDmpR6as2k"
+\dontrun{
 set_telraam_token(mytoken)
-
+}
 }

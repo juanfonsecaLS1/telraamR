@@ -1,23 +1,23 @@
-#' Get the cardinal directions for the segments
-#'
-#' @param mysegments an `sf` object with the segments
-#'
-#' @return a `data.frame` with the correspondence of left `lft` and
-#' right `rgt`directions to cardinal directions of the road
-#' @export
-#'
-#' @importFrom stplanr line_bearing
-#'
-#'
-#' @examples
-#' \dontrun{
-#' anysegment <- my_segments |>
-#'   filter(oidn == 9000003890)
-#'
-#' get_cardinal_dirs(anysegment)
-#' }
+  #' Get cardinal directions for Telraam segments
+  #'
+  #' @description
+  #' Calculates the cardinal directions (e.g., Northbound, Eastbound) for the left and right sides of Telraam road segments based on their geometry.
+  #'
+  #' @param mysegments An `sf` object containing the road segments.
+  #'
+  #' @return A `data.frame` with columns `lft` and `rgt` indicating the cardinal directions for each segment side.
+  #' @export
+  #'
+  #'
+  #' @examples
+  #' \dontrun{
+  #' anysegment <- read_telraam_segments() |>
+  #'   dplyr::filter(oidn == 9000003890)
+  #' get_cardinal_dirs(anysegment)
+  #' }
+  #'
 get_cardinal_dirs <- function(mysegments) {
-  bearings <- line_bearing(mysegments)
+  bearings <- stplanr::line_bearing(mysegments)
 
   # Ensuring values are between 0 and 360
   bearings[bearings < 0] <- bearings[bearings < 0] + 360
@@ -59,7 +59,7 @@ get_cardinal_dirs <- function(mysegments) {
 
 
   result <- mysegments |>
-    st_drop_geometry() |>
+    sf::st_drop_geometry() |>
     cbind(df_directions)
 
   return(result)
@@ -96,12 +96,12 @@ tidy_directional <- function(data) {
   sel_segments <- all_segments[all_segments$oidn %in% oids, ]
 
   lfrg2card <- get_cardinal_dirs(sel_segments) |>
-    pivot_longer(
-      cols = -all_of("oidn"),
+    tidyr::pivot_longer(
+      cols = -dplyr::all_of("oidn"),
       names_to = "view_direction",
       values_to = "road_dir"
     ) |>
-    mutate(road_dir = as.character(.data$road_dir))
+    dplyr::mutate(road_dir = as.character(.data$road_dir))
 
 
   sel_cols <- c(
@@ -120,16 +120,16 @@ tidy_directional <- function(data) {
   dir_cols <- names(dir_data)[grepl(pattern = "(lft|rgt)", names(dir_data))]
 
   long_dir <- dir_data |>
-    pivot_longer( # names_pattern = ".*\\_(lft|rgt)",
-      cols = all_of(dir_cols),
+    tidyr::pivot_longer( # names_pattern = ".*\\_(lft|rgt)",
+      cols = dplyr::all_of(dir_cols),
       values_to = "flow"
     ) |>
-    mutate(
-      view_direction = str_extract(string = .data$name, pattern = "(lft|rgt)"),
-      type = str_extract(string = .data$name, pattern = "(heavy|car|bike|pedestrian)")
+    dplyr::mutate(
+      view_direction = stringr::str_extract(string = .data$name, pattern = "(lft|rgt)"),
+      type = stringr::str_extract(string = .data$name, pattern = "(heavy|car|bike|pedestrian)")
     ) |>
-    left_join(lfrg2card, by = c("segment_id" = "oidn", "view_direction")) |>
-    select(all_of(
+    dplyr::left_join(lfrg2card, by = c("segment_id" = "oidn", "view_direction")) |>
+    dplyr::select(dplyr::all_of(
       c(
         "segment_id",
         "uptime",

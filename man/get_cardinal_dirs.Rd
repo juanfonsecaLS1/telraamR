@@ -2,25 +2,24 @@
 % Please edit documentation in R/card_directions.R
 \name{get_cardinal_dirs}
 \alias{get_cardinal_dirs}
-\title{Get the cardinal directions for the segments}
+\title{Get cardinal directions for Telraam segments}
 \usage{
 get_cardinal_dirs(mysegments)
 }
 \arguments{
-\item{mysegments}{an \code{sf} object with the segments}
+\item{mysegments}{An \code{sf} object containing the road segments.}
 }
 \value{
-a \code{data.frame} with the correspondence of left \code{lft} and
-right \code{rgt}directions to cardinal directions of the road
+A \code{data.frame} with columns \code{lft} and \code{rgt} indicating the cardinal directions for each segment side.
 }
 \description{
-Get the cardinal directions for the segments
+Calculates the cardinal directions (e.g., Northbound, Eastbound) for the left and right sides of Telraam road segments based on their geometry.
 }
 \examples{
 \dontrun{
-anysegment <- my_segments |>
-  filter(oidn == 9000003890)
-
+anysegment <- read_telraam_segments() |>
+  dplyr::filter(oidn == 9000003890)
 get_cardinal_dirs(anysegment)
 }
+
 }
