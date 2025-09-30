@@ -1,3 +1,7 @@
+# telraamR 0.2.0
+
+-   Added the option to get 15-min data with advanced token.
+
 # telraamR 0.1.0
 
 -   Added 'set_telraam_token' for temporary authentication 
