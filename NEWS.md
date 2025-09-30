@@ -1,7 +1,7 @@
 # telraamR 0.3.0
 
 -   Improved documentation
--   Fixed format of 
+-   Fixed format in data.frame from 'read_telraam_traffic'
 
 # telraamR 0.2.0
 
