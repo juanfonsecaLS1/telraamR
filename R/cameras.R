@@ -9,7 +9,6 @@
   #' @return Data frame containing all Telraam cameras and their metadata.
   #' @export
   #'
-  #'
   #' @examples
   #' \dontrun{
   #' read_telraam_cameras()

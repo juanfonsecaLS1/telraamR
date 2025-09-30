@@ -18,5 +18,7 @@ An sf object containing all Telraam segments with their IDs and geometry.
 Retrieves all Telraam segments as a spatial (sf) object, optionally using cached API responses.
 }
 \examples{
+\dontrun{
 read_telraam_segments()
+}
 }
