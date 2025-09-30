@@ -1,7 +1,7 @@
 Package: telraamR
 Type: Package
 Title: R Interface For The Telraam API
-Version: 0.2.0
+Version: 0.3.0
 Authors@R: 
     c(
     person("Juan Pablo", "Fonseca Zamora", , email = "ts18jpf@leeds.ac.uk",

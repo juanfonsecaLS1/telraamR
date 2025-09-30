@@ -1,3 +1,5 @@
+# telraamR 0.3.0
+
 # telraamR 0.2.0
 
 -   Added the option to get 15-min data with advanced token.
